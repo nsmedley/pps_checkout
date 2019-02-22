@@ -1,8 +1,8 @@
 $(function() {
     hideInputLabels();
     showPaymentDrawer();
-    cardInputMasks();
     cardPreviewAndFlip();
+    checkoutPaymentTabs();
 });
 
 //If input field has a value then hide the label
@@ -19,13 +19,6 @@ function hideInputLabels() {
 
 //Check to make sure details inputs are filled and show payment section
 function showPaymentDrawer() {
-}
-
-//Add input masks to the checkout page for data validation
-function cardInputMasks() {
-    $("#cardNumber").inputmask("9999 9999 9999 9999",{ "placeholder": "" });
-    $("#cardExpiry").inputmask("99/99",{ "placeholder": "" });
-    $("#cardCvv").inputmask("999",{ "placeholder": "" });
 }
 
 function cardPreviewAndFlip() {
@@ -52,5 +45,17 @@ function cardPreviewAndFlip() {
 
     $("#cardCvv").blur(function(){
         $('.cardPreview__card').removeClass('flipped');
+    });
+}
+
+function checkoutPaymentTabs() {
+    $('.paymentTabs .paymentTabs__tab').click(function() {
+        var tab_id = $(this).data("tab");
+
+		$('.paymentTabs .paymentTabs__tab').removeClass('paymentTabs__tab--active');
+		$('.tabContent').removeClass('openPaymentMethod');
+
+		$(this).addClass('paymentTabs__tab--active');
+		$("#"+tab_id).addClass('openPaymentMethod');
     });
 }

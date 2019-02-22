@@ -90,24 +90,24 @@
                     <h2 class="checkOut__title checkOut__title--short">Payment details</h2>
     
                     <div class="paymentTabs">
-                        <div class="paymentTabs__tab paymentTabs__tab--active" id="cardPayment">
+                        <div class="paymentTabs__tab paymentTabs__tab--active" data-tab="tab_card">
                             <img src="images/card.svg" class="cardImg" alt="pay by card" />
                         </div>
-                        <div class="paymentTabs__tab" id="payPal">
-                            <img src="images/paypal.svg" class="paypalImg" alt="pay by paypal" />
+                        <div class="paymentTabs__tab" id="payPal" data-tab="tab_others">
+                            <img src="images/paypal.svg" class="paypalImg" alt="pay by paypal" data-tab="tab_card" />
                         </div>
-                        <div class="paymentTabs__tab" id="applePay">
-                            <img src="images/applepay.svg" class="appleImg" alt="pay by Apple pay" />
+                        <div class="paymentTabs__tab" id="applePay" data-tab="tab_others">
+                            <img src="images/applepay.svg" class="appleImg" alt="pay by Apple pay" data-tab="tab_card" />
                         </div>
-                        <div class="paymentTabs__tab" id="googlePay">
-                            <img src="images/googlepay.svg" class="googleImg" alt="pay by Google pay" />
+                        <div class="paymentTabs__tab" id="googlePay" data-tab="tab_others">
+                            <img src="images/googlepay.svg" class="googleImg" alt="pay by Google pay" data-tab="tab_card" />
                         </div>
-                        <div class="paymentTabs__tab" id="amazonPay">
-                            <img src="images/amazonpay.svg" class="amazonImg" alt="pay by Amazong pay" />
+                        <div class="paymentTabs__tab" id="amazonPay" data-tab="tab_others">
+                            <img src="images/amazonpay.svg" class="amazonImg" alt="pay by Amazong pay" data-tab="tab_card" />
                         </div>
                     </div>
     
-                    <div class="tabContent" id="tab_card">
+                    <div class="tabContent openPaymentMethod" id="tab_card">
                         <div class="cardFormWrapper">
                             <div id="cardNameContainer">
                                 <input type="text" name="cardName" id="cardName" class="cardFormWrapper__field" required autocomplete="cc-name" />
@@ -115,7 +115,7 @@
                             </div>
 
                             <div id="cardNumberContainer">   
-                                <input type="text" name="cardNumber" id="cardNumber" class="cardFormWrapper__field" required autocomplete="cc-number" />
+                                <input type="text" name="cardNumber" id="cardNumber" class="cardFormWrapper__field" required autocomplete="cc-number" maxlength="20" />
                                 <label for="cardNumber">Card Number <abbr title="required">*</abbr></label>
                             </div>
 
@@ -125,7 +125,7 @@
                             </div>
 
                             <div id="cardCvvContainer">
-                                <input type="text" name="cardCvv" id="cardCvv" class="cardFormWrapper__field" required autocomplete="cc-csc" />
+                                <input type="text" name="cardCvv" id="cardCvv" class="cardFormWrapper__field" required autocomplete="cc-csc" maxlength="3" />
                                 <label for="cardCvv">CVV <abbr title="required">*</abbr></label>
                             </div>
 
@@ -166,6 +166,10 @@
                                 <img src="images/powered_by.svg" alt="powerd by worldpay, visa, mastercard" />
                             </div>
                         </div>
+                    </div>
+
+                    <div class="tabContent" id="tab_others">
+                        <h2>Sorry, This payment option is currently not active</h2>
                     </div>
                 </div>
 
