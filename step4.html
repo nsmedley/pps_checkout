@@ -1,0 +1,186 @@
+<html class="no-js" lang="en">
+<head>
+    <title>PPS Checkout</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,700" rel="stylesheet">
+    <link href="style.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <div id="ppsCheckout">
+
+        <form class="checkOut">
+            <div class="checkOut__header">
+                <div class="secureCheckoutImg"><img src="images/lock.svg" alt="padlock icon" /></div>
+                <h2>Secure Checkout</h2>
+            </div>
+
+            <div class="checkOut__wrapper">
+                <div class="checkOut__overview">
+                    <p>Your unique business number <strong>0020 345 6789</strong><br />has been reserved for <span>34:26</span> minutes</p>
+                </div>
+
+                <div class="checkOut__summary">
+                    <h2 class="checkOut__title">Order summary</h2>
+
+                    <div class="summaryWrapper">
+                        <ul class="summaryProductDesc">
+                            <li>Pocket Phone System <span>SPRINT</span> package</li>
+                            <li><strong>3</strong> x Recipients</li>
+                            <li>1 x Free business number: <strong>0020 345 6789</strong></li>
+                            <li><strong>600</strong> Inclusive minutes </li>
+                        </ul>
+
+                        <div class="summaryProductPrice">
+                            £35.00
+                        </div>
+
+                        <div class="summaryPromoCode">
+                            <p>*Text regarding costs for Outbound Calls charges and additional inclusive minutes rates etc. etc.</p>
+
+                            <div id="promoCodeContainer">
+                                <input type="text" name="promoCode" id="promoCode" class="summaryPromoCode__field" />
+                                <label for="promoCode">Promotional Code</label>
+                                <div class="addressSearch">Apply</div>
+                            </div>
+                        </div>
+
+                        <div class="summaryTotalPrice">
+                            <div class="leftTotalPrice">
+                                <p>TOTAL NET</p>
+                                <p>VAT @ 20%</p>
+                                <p>TOTAL</p>
+                            </div>
+
+                            <div class="RightTotalPrice">
+                                <p>£35.00</p>
+                                <p>£42.00</p>
+                                <p>£42.00</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="checkOut__details">
+                    <h2 class="checkOut__title">Your details</h2>
+
+                    <div id="nameContainer">
+                        <input type="text" name="name" id="name" class="checkOut__details--field" required />
+                        <label for="name">Name <abbr title="required">*</abbr></label>
+                    </div>
+                    
+                    <div id="emailContainer">
+                        <input type="email" name="email" id="email" class="checkOut__details--field" required />
+                        <label for="email">Email <abbr title="required">*</abbr></label>
+                    </div>
+                    
+                    <div id="companyContainer">
+                        <input type="text" name="company" id="company" class="checkOut__details--field" />
+                        <label for="company">Company name</label>
+                    </div>
+                    
+                    <div id="telephoneContainer">
+                        <input type="tel" name="telephone" id="telephone" class="checkOut__details--field" required />
+                        <label for="telephone">Telephone <abbr title="required">*</abbr></label>
+                    </div>
+                </div>
+
+                <div class="checkOut__payment">
+                    <h2 class="checkOut__title checkOut__title--short">Payment details</h2>
+    
+                    <div class="paymentTabs">
+                        <div class="paymentTabs__tab paymentTabs__tab--active" id="cardPayment">
+                            <img src="images/card.svg" class="cardImg" alt="pay by card" />
+                        </div>
+                        <div class="paymentTabs__tab" id="payPal">
+                            <img src="images/paypal.svg" class="paypalImg" alt="pay by paypal" />
+                        </div>
+                        <div class="paymentTabs__tab" id="applePay">
+                            <img src="images/applepay.svg" class="appleImg" alt="pay by Apple pay" />
+                        </div>
+                        <div class="paymentTabs__tab" id="googlePay">
+                            <img src="images/googlepay.svg" class="googleImg" alt="pay by Google pay" />
+                        </div>
+                        <div class="paymentTabs__tab" id="amazonPay">
+                            <img src="images/amazonpay.svg" class="amazonImg" alt="pay by Amazong pay" />
+                        </div>
+                    </div>
+    
+                    <div class="tabContent" id="tab_card">
+                        <div class="cardFormWrapper">
+                            <div id="cardNameContainer">
+                                <input type="text" name="cardName" id="cardName" class="cardFormWrapper__field" required autocomplete="cc-family-name" />
+                                <label for="cardName">Card Holder Name <abbr title="required">*</abbr></label>
+                            </div>
+
+                            <div id="cardNumberContainer">   
+                                <input type="text" name="cardNumber" id="cardNumber" class="cardFormWrapper__field" required autocomplete="cc-number" />
+                                <label for="cardNumber">Card Number <abbr title="required">*</abbr></label>
+                            </div>
+
+                            <div id="cardExpiryContainer">
+                                <input type="text" name="cardExpiry" id="cardExpiry" class="cardFormWrapper__field" required autocomplete="cc-exp" />
+                                <label for="cardExpiry">Expiry <abbr title="required">*</abbr></label>
+                            </div>
+
+                            <div id="cardCvvContainer">
+                                <input type="text" name="cardCvv" id="cardCvv" class="cardFormWrapper__field" required autocomplete="cc-csc" />
+                                <label for="cardCvv">CVV <abbr title="required">*</abbr></label>
+                            </div>
+
+                            <div id="vatNumberContainer">
+                                <input type="text" name="vatNumber" id="vatNumber" class="cardFormWrapper__field" />
+                                <label for="vatNumber">VAT number (optional)</label>
+                            </div>
+
+                            <div id="addressContainer">
+                                <input type="text" name="address" id="address" class="cardFormWrapper__field" />
+                                <label for="address">Start typing your address to search <abbr title="required">*</abbr></label>
+                                <div class="addressSearch"><i class="fal fa-check"></i></div>
+                            </div>
+                            
+                            <input type="button" class="cardFormWrapper__field" id="manualAddress" value="Or enter address manually" />
+
+                            <input type="submit" id="submitOrder" value="Complete order" />
+                        </div>
+    
+                        <div class="cardPreview">
+
+                            <div class="cardPreview__card">
+                                <div class="front">
+                                    <div class="cardPreview__chip"><img src="images/contactless.svg" alt="Contactless icon for card preview" /></div>
+                                    <div class="cardPreview__number">**** **** **** 0000</div>
+                                    <div class="cardPreview__name">John C Smith</div>
+                                    <div class="cardPreview__date">12 / 22</div>
+                                </div>
+                                <div class="back">
+                                    <div class="cardPreview__magStrip"></div>
+                                    <div class="cardPreview__sigStrip">
+                                            <div class="cardPreview__cvv">000</div>
+                                    </div>
+                                </div>
+                            </div> 
+    
+                            <div class="cardPreview__powered">
+                                <img src="images/powered_by.svg" alt="powerd by worldpay, visa, mastercard" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkOut__back">
+                    <a href="step3.html">&lt; Back</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://pro.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-I3Hhe9TkmlsxzooTtbRzdeLbmkFQE9DVzX/19uTZfHk1zn/uWUyk+a+GyrHyseSq" crossorigin="anonymous"></script>
+    <script src="js/ppsCheckout.js"></script>
+    <script src="js/jquery.inputmask.bundle.js"></script>
+</body>
+
+</html>
