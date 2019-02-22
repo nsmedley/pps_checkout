@@ -9,7 +9,7 @@
 <body>
     <div id="ppsCheckout">
 
-        <form class="checkOut">
+        <form class="checkOut" autocomplete="on">
             <div class="checkOut__header">
                 <div class="secureCheckoutImg"><img src="images/lock.svg" alt="padlock icon" /></div>
                 <h2>Secure Checkout</h2>
@@ -41,7 +41,7 @@
                             <div id="promoCodeContainer">
                                 <input type="text" name="promoCode" id="promoCode" class="summaryPromoCode__field" />
                                 <label for="promoCode">Promotional Code</label>
-                                <div class="addressSearch">Apply</div>
+                                <div class="applyPromoCode">Apply</div>
                             </div>
                         </div>
 
@@ -110,7 +110,7 @@
                     <div class="tabContent" id="tab_card">
                         <div class="cardFormWrapper">
                             <div id="cardNameContainer">
-                                <input type="text" name="cardName" id="cardName" class="cardFormWrapper__field" required autocomplete="cc-family-name" />
+                                <input type="text" name="cardName" id="cardName" class="cardFormWrapper__field" required autocomplete="cc-name" />
                                 <label for="cardName">Card Holder Name <abbr title="required">*</abbr></label>
                             </div>
 
@@ -135,7 +135,7 @@
                             </div>
 
                             <div id="addressContainer">
-                                <input type="text" name="address" id="address" class="cardFormWrapper__field" />
+                                <input type="text" name="address" id="address" class="cardFormWrapper__field" autocomplete="nope" />
                                 <label for="address">Start typing your address to search <abbr title="required">*</abbr></label>
                                 <div class="addressSearch"><i class="fal fa-check"></i></div>
                             </div>

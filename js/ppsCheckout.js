@@ -24,7 +24,7 @@ function showPaymentDrawer() {
 //Add input masks to the checkout page for data validation
 function cardInputMasks() {
     $("#cardNumber").inputmask("9999 9999 9999 9999",{ "placeholder": "" });
-    $("#cardExpiry").inputmask("99/99",{ "placeholder": "mm/yy" });
+    $("#cardExpiry").inputmask("99/9999",{ "placeholder": "mm/yyyy" });
     $("#cardCvv").inputmask("999",{ "placeholder": "" });
 }
 

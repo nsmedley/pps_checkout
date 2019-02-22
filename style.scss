@@ -155,7 +155,90 @@ $lato: "Lato", sans-serif;
                     }
 
                     #promoCodeContainer {
-                        
+                        position: relative;
+
+                        .summaryPromoCode__field {
+                            width: 100%;
+                            background: #fff;
+                            border-radius: 0;
+                            height:48px;
+                            box-sizing: border-box;
+                            border: solid 1px #cecece;
+                            padding:0 10px 0 15px;
+                            font-size: 16px;
+                            font-family: $lato;
+                            font-weight: 300;
+                            color:#6d6a69;
+    
+                            &:focus + label {
+                                top:-10px;
+                                left:0;
+                                font-size: 13px;
+                            }
+                            
+                            &--valid {
+                                border-bottom: solid 1px #badc58;
+                            }
+    
+                            &--invalid {
+                                border: solid 1px #eb4d4b;
+                                background: #ff7979;
+                                color: #fff;
+                            }
+    
+                            &#cardName {
+                                text-transform: capitalize;
+                            }
+                        }
+
+                        label {
+                            font-size: 16px;
+                            font-family: $lato;
+                            font-weight: 300;
+                            color:#6d6a69;
+                            position: absolute;
+                            top:50%;
+                            pointer-events: none;
+                            left:15px;
+                            transform: translateY(-50%);
+                            transition: all .25s ease;
+    
+                            abbr {
+                                color:$orange;
+                                border-bottom: none;
+                                cursor: inherit;
+                                text-decoration: none;
+                            }
+    
+                            &.stay {
+                                top:-10px;
+                                left:0;
+                                font-size: 13px; 
+                            }
+                        }
+
+                        .applyPromoCode {
+                            position: absolute;
+                            background: #6d6a69;
+                            color:#fff;
+                            right:0;
+                            top:0;
+                            width:100px;
+                            text-align: center;
+                            line-height: 48px;
+                            height: 100%;
+                            cursor: pointer;
+                            border: solid 1px #cecece;
+                            box-sizing: border-box;
+                            font-size: 16px;
+                            font-family: $lato;
+                            text-transform: uppercase;
+                            transition: all .25s ease;
+
+                            &:hover {
+                                background:darken(#6d6a69, 10%);
+                            }
+                        }
                     }
                 }
                 
@@ -485,7 +568,7 @@ $lato: "Lato", sans-serif;
 
                     #manualAddress {
                         text-align: center;
-                        background: #636464;
+                        background: #6d6a69;
                         text-transform: uppercase;
                         color: #fff;
                         font-weight: bold;
@@ -497,7 +580,7 @@ $lato: "Lato", sans-serif;
                         transition: all .25s ease;
 
                         &:hover {
-                            background: darken(#636464, 10%);
+                            background: darken(#6d6a69, 10%);
                         }
                     }
 
