@@ -1,6 +1,5 @@
 $(function() {
     hideInputLabels();
-    showPaymentDrawer();
     cardPreviewAndFlip();
     checkoutPaymentTabs();
 });
@@ -15,10 +14,6 @@ function hideInputLabels() {
             $("label[for='"+fieldId+"']").addClass('stay');
          }
     });
-}
-
-//Check to make sure details inputs are filled and show payment section
-function showPaymentDrawer() {
 }
 
 function cardPreviewAndFlip() {

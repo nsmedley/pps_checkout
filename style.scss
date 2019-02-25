@@ -1,7 +1,8 @@
 /* autoprefixer grid: on */
 
 // Color Palette
-$white: #f9fafd;
+$white: #fff;
+$lightGrey: #e5e5e4;
 $grey: #dcdedd;
 $black: #636464;
 $orange: #f26247;
@@ -27,7 +28,7 @@ $lato: "Lato", sans-serif;
 
 // Styles
 #ppsCheckout {
-    background: #e5e5e4;
+    background: $white;
     padding-bottom:100px; //TODO: Remove this
 
     .checkOut {
@@ -62,26 +63,6 @@ $lato: "Lato", sans-serif;
                 margin: 0;
                 font-family: $opensans;
                 font-size: 26px;
-            }
-        }
-
-        &__overview {
-            @extend %section;
-            margin-top: 35px;
-            font-family: $opensans;
-            font-size: 26px;
-            line-height: 32px;
-            text-align: center;
-            color: $black;
-            font-weight: 300;
-            padding: 30px 90px 25px;
-
-            strong {
-                font-weight: bold;
-            }
-
-            span {
-                color: $orange;
             }
         }
 
@@ -779,13 +760,6 @@ $lato: "Lato", sans-serif;
                 text-decoration: none;
             }
         }
-
-        //Stop inputs turning yellow and changing color on autocomplete
-        input:-webkit-autofill {
-            -webkit-text-fill-color: $black !important;
-            -webkit-box-shadow: 0 0 0px 1000px white inset;
-        }
-
     }
 
     .tariff {
@@ -883,32 +857,264 @@ $lato: "Lato", sans-serif;
         }
 
         &__title {
+            font-family: $opensans;
+            font-weight: 300;
+            font-size: 30px;
+            color:$black;
+            margin-bottom: 20px;
         }
 
         &__subtitle {
+            font-family: $lato;
+            font-weight: 300;
+            font-size: 20px;
+            color:$black;
+            margin-bottom: 35px;
         }
 
-        &__input {
-            border-radius: 0;
-            height: 40px;
-            box-sizing: border-box;
-            width: 500px;
+        &__header {
+            background: $lightGrey;
+            height: 84px;
+            line-height: 84px;
+            font-family: $opensans;
+            font-size: 26px;
+            font-weight: 300;
+            position: relative;
+            margin-bottom: 100px;
+            color: $black;
+            text-align: center;
+
+            .stepWrapper {
+                width: 590px;
+                height: 40px;
+                margin: 0 auto;
+                position: absolute;
+                left: 50%;
+                bottom: -20px;
+                transform: translateX(-50%);
+
+                .step {
+                    text-align: center;
+                    font-size: 14px;
+                    display: inline-block;
+                    position: absolute;
+
+                    &__circle {
+                        width:36px;
+                        height:36px;
+                        background: $orange;
+                        color: $white;
+                        font-family: $lato;
+                        font-weight: bold;
+                        font-size: 17px;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 36px;
+                        border:solid 2px $orange;
+
+                        i {
+                            line-height: 36px;
+                            font-size: 24px;
+                        }
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            color: $orange;
+                            left: 50%;
+                            font-size: 14px;
+                            position: relative;
+                            width: 110px;
+                            transform: translateX(-50%);
+                        }
+
+                        &--incomplete {
+                            background:$white;
+                            border:solid 2px $orange;
+                            color:$black;
+
+                            &:after {
+                                color: $black;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+
+                    &--1 {
+                        left: -20px;
+
+                        .step__circle {
+                            &::after {
+                                content: 'Get started';
+                            }
+                        }
+                    }
+
+                    &--2 {
+                        left: calc(33% - 20px);
+
+                        .step__circle {
+                            &::after {
+                                content: 'Your number';
+                            }
+                        }
+                    }
+
+                    &--3 {
+                        left: calc(66% - 20px); 
+
+                        .step__circle {
+                            &::after {
+                                content: 'Your details';
+                            }
+                        }
+                    }
+
+                    &--4 {
+                        left: calc(100% - 20px);
+
+                        .step__circle {
+                            &::after {
+                                content: 'Secure checkout';
+                            }
+                        }
+                    }
+                }
+
+                &:before {
+                    content:'';
+                    display: block;
+                    background: $orange;
+                    height: 1px;
+                    width: 590px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        #emailContainer, #emailFormContain {
+            position: relative;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        &__field {
+            width: 100%;
             background: #fff;
-            box-sizing: border-box;
+            border-radius: 0;
+            height:48px;
+            border: solid 1px #cecece;
+            padding:0 10px 0 15px;
+            font-size: 16px;
+            font-family: $lato;
+            font-weight: 300;
+            color:#6d6a69;
+            outline:0;
+
+            &:focus + label {
+                top:-10px;
+                left:0;
+                font-size: 13px;
+            }
+            
+            &--valid {
+                border-bottom: solid 1px #badc58;
+            }
+
+            &--invalid {
+                border: solid 1px #eb4d4b;
+                background: #ff7979;
+                color: #fff;
+            }
+
+            &#cardName {
+                text-transform: capitalize;
+            }
         }
 
         &__submit {
             background: $green;
-            height: 40px;
-            box-sizing: border-box;
+            cursor: pointer;
             color: #fff;
-            font-weight: bold;
-            font-family: $lato;
-            top: 1px; //to offset them being slightly out of line without floating
-            position: relative;
-            font-size: 18px;
-            width: 115px;
+            border:0;
+            width: 112px;
+            height: 48px;
+            line-height: 48px;
             text-transform: uppercase;
+            font-family: $lato;
+            font-weight: bold;
+            font-size: 18px;
+            right: 0;
+            top: 0;
+            position: absolute;
+            transition: all .25s ease;
+
+            &:hover {
+                background: darken($green, 10%);
+            }
+        }
+
+        label {
+            font-size: 16px;
+            font-family: $lato;
+            font-weight: 300;
+            color:#6d6a69;
+            position: absolute;
+            top:50%;
+            pointer-events: none;
+            left:15px;
+            transform: translateY(-50%);
+            transition: all .25s ease;
+
+            abbr {
+                color:$orange;
+                border-bottom: none;
+                cursor: inherit;
+                text-decoration: none;
+            }
+
+            &.stay {
+                top:-10px;
+                left:0;
+                font-size: 13px; 
+            }
+        }
+
+        .gdprContainer {
+            text-align: left;
+            margin-top: 25px;
+
+            label {
+                font-size: 12px;
+                font-family: $lato;
+                font-weight: 400;
+                pointer-events: auto;
+                color:$black;
+                position: relative;
+                top:inherit;
+                left: 0;
+
+               a {
+                    color:$black;
+                } 
+            }
+
+            #gdprOptIn {
+                -webkit-appearance: none;
+                border: solid 1px $grey;
+                width: 22px;
+                height: 22px;
+                margin-right: 10px;
+                outline: 0;
+
+                &:checked {
+                    content: '<i class="fal fa-check"></i>';
+                    background: red;
+                }
+            }
         }
     }
 
@@ -917,6 +1123,19 @@ $lato: "Lato", sans-serif;
         &__wrapper {
             max-width: 866px;
             margin: 0 auto;
+        }
+
+        &__header {
+            background: $lightGrey;
+            height: 84px;
+            line-height: 84px;
+            font-family: $opensans;
+            font-size: 26px;
+            font-weight: 300;
+            position: relative;
+            margin-bottom: 100px;
+            color: $black;
+            text-align: center;
         }
 
         .chooseNumber, .keepNumber {
@@ -976,5 +1195,143 @@ $lato: "Lato", sans-serif;
         .keepNumber {
             margin-left:12px;
         }
+    }
+
+    //Checkout step bar along top
+    .stepWrapper {
+        width: 590px;
+        height: 40px;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        bottom: -20px;
+        transform: translateX(-50%);
+
+        .step {
+            text-align: center;
+            font-size: 14px;
+            display: inline-block;
+            position: absolute;
+
+            &__circle {
+                width:36px;
+                height:36px;
+                background: $orange;
+                color: $white;
+                font-family: $lato;
+                font-weight: bold;
+                font-size: 17px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 36px;
+                border:solid 2px $orange;
+
+                i {
+                    line-height: 36px;
+                    font-size: 24px;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    left: 50%;
+                    font-size: 14px;
+                    position: relative;
+                    width: 110px;
+                    transform: translateX(-50%);
+                }
+
+                &--incomplete {
+                    background:$white;
+                    border:solid 2px $orange;
+                    color:$black;
+
+                    &:after {
+                        color: $black;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            &--1 {
+                left: -20px;
+
+                .step__circle {
+                    &::after {
+                        content: 'Get started';
+                    }
+                }
+            }
+
+            &--2 {
+                left: calc(33% - 20px);
+
+                .step__circle {
+                    &::after {
+                        content: 'Your number';
+                    }
+                }
+            }
+
+            &--3 {
+                left: calc(66% - 20px); 
+
+                .step__circle {
+                    &::after {
+                        content: 'Your details';
+                    }
+                }
+            }
+
+            &--4 {
+                left: calc(100% - 20px);
+
+                .step__circle {
+                    &::after {
+                        content: 'Secure checkout';
+                    }
+                }
+            }
+        }
+
+        &:before {
+            content:'';
+            display: block;
+            background: $orange;
+            height: 1px;
+            width: 590px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    //Checkout overview styling
+    .overview {
+        @extend %section;
+        margin-top: 35px;
+        font-family: $opensans;
+        font-size: 26px;
+        line-height: 36px;
+        text-align: center;
+        color: $black;
+        font-weight: 300;
+        padding: 30px 90px 25px;
+
+        strong {
+            font-weight: bold;
+        }
+
+        span {
+            color: $orange;
+        }
+    }
+
+    //Stop inputs turning yellow and changing color on autocomplete
+    input:-webkit-autofill {
+        -webkit-text-fill-color: $black !important;
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
     }
 }

@@ -1,6 +1,7 @@
 <html class="no-js" lang="">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
 </head>
 
@@ -8,8 +9,28 @@
     <div id="ppsCheckout">
 
         <div class="email">
+            <div class="email__header">
+                <div class="stepWrapper">
+                    <div class="step step--1">
+                        <div class="step__circle step__circle--complete"><i class="fal fa-check"></i></div>
+                    </div>
+
+                    <div class="step step--2">
+                        <div class="step__circle step__circle--complete"><i class="fal fa-check"></i></div>
+                    </div>
+
+                    <div class="step step--3">
+                        <div class="step__circle step__circle--active">3</div>
+                    </div>
+
+                    <div class="step step--4">
+                        <div class="step__circle step__circle--incomplete">4</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="email__wrapper">
-                <div class="checkOut__overview">
+                <div class="overview">
                     <p>Your unique <span>SPRINT</span> business number <strong>0020 345 6789</strong> has been reserved for <span>34:26</span> minutes</p>
                 </div>
 
@@ -17,18 +38,32 @@
                     <h2 class="email__title">Please enter your email address</h2>
                     <p class="email__subtitle">We'll need this to confirm your Moneypenny log in.</p>
 
-                    <input type="email" name="email" class="email__input" />
-                    <a href="step4.html">
-                        <input type="submit" name="emailSubmit" class="email__submit" value="GO" />
-                    </a>
+                    <form action="step4.html" id="emailFormContain">
+                        <div id="emailContainer">
+                            <input type="email" name="email" id="email" class="email__field" required />
+                            <label for="email">Enter your email address <abbr title="required">*</abbr></label>
+                            <a href="step4.html">
+                                <input type="submit" name="emailSubmit" class="email__submit" value="GO" />
+                            </a>
+                        </div>
+                        
+                        <div class="gdprContainer">
+                            <label for="gdprOptIn">
+                                <input type="checkbox" id="gdprOptIn" name="gdprOptIn">
+                                How will we use your data? Read our <a href="#">Privacy Policy</a>, or opt-out of on-going communications from Moneypenny.
+                            </label>
+                        </div>
+                    </form>
                 </div>
 
             </div>
+            
         </div>
 
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/ppsCheckout.js"></script>
 </body>
 
 </html>
