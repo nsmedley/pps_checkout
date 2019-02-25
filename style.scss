@@ -32,7 +32,8 @@ $lato: "Lato", sans-serif;
     padding-bottom:100px; //TODO: Remove this
 
     .checkOut {
-
+        background:$grey;
+        
         &__wrapper {
             max-width: 866px;
             margin: 0 auto;
@@ -1111,8 +1112,7 @@ $lato: "Lato", sans-serif;
                 outline: 0;
 
                 &:checked {
-                    content: '<i class="fal fa-check"></i>';
-                    background: red;
+                    background: crimson;
                 }
             }
         }
@@ -1318,7 +1318,7 @@ $lato: "Lato", sans-serif;
         text-align: center;
         color: $black;
         font-weight: 300;
-        padding: 30px 90px 25px;
+        padding: 30px 140px 25px;
 
         strong {
             font-weight: bold;
