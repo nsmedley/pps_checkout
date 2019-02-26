@@ -211,7 +211,7 @@
 										class="cardFormWrapper__field"
 										required
 										autocomplete="cc-number"
-										maxlength="20"
+										pattern="[0-9]{13,16}"
 									/>
 									<label for="cardNumber"
 										>Card Number <abbr title="required">*</abbr></label
@@ -226,7 +226,8 @@
 										class="cardFormWrapper__field"
 										required
 										autocomplete="cc-exp"
-										maxlength="5"
+										pattern="[0-9]{4,7}"
+										maxlength="7"
 									/>
 									<label for="cardExpiry"
 										>Expiry <abbr title="required">*</abbr></label
@@ -242,6 +243,7 @@
 										required
 										autocomplete="cc-csc"
 										maxlength="3"
+										pattern="[0-9]{3}"
 									/>
 									<label for="cardCvv"
 										>CVV <abbr title="required">*</abbr></label
