@@ -5,1200 +5,264 @@ $white: #fff;
 $lightGrey: #e5e5e4;
 $grey: #dcdedd;
 $black: #636464;
+$midnight: #525156;
 $orange: #f26247;
 $green: #0ca69c;
+$red: #e62a36;
 
 // Font stacks
 $opensans: "Open Sans", sans-serif;
 $lato: "Lato", sans-serif;
 
 // Import normalize
-@import 'reset';
-@import 'normalize';
+@import "reset";
+@import "normalize";
 
 // Extends
 %section {
-    display: block;
-    box-sizing: border-box;
-    padding: 30px 35px 25px 35px;
-    background: $white;
-    margin-bottom:35px;
-    position:relative;
+  display: block;
+  box-sizing: border-box;
+  padding: 30px 35px 25px 35px;
+  background: $white;
+  margin-bottom: 35px;
+  position: relative;
 }
 
 // Styles
 #ppsCheckout {
-    background: $white;
-    padding-bottom:100px; //TODO: Remove this
-
-    .checkOut {
-        background:$grey;
-        
-        &__wrapper {
-            max-width: 866px;
-            margin: 0 auto;
-        }
-
-        &__header {
-            background: $white;
-            height: 84px;
-            line-height: 84px;
-            font-family: $opensans;
-            font-size: 26px;
-            font-weight: 300;
-            color: $black;
-            text-align: center;
-
-            .secureCheckoutImg {
-                width: 22px;
-                display: inline-block;
-                margin-right: 15px;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            h2 {
-                display: inline-block;
-                margin: 0;
-                font-family: $opensans;
-                font-size: 26px;
-            }
-        }
-
-        &__title {
-            font-family: $opensans;
-            color: $black;
-            font-weight: 300;
-            font-size: 26px;
-            width: 100%;
-            grid-area: title;
-            padding-bottom: 15px;
-            margin-block-end: 15px;
-            border-bottom: solid 1px $orange;
-        }
-
-        &__summary {
-            @extend %section;
-
-            .summaryWrapper {
-                display: grid;
-                grid-template-areas:
-                    "summaryProductDesc summaryProductPrice"
-                    "summaryPromoCode summaryTotalPrice";
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                grid-column-gap: 40px;
-
-                .summaryProductDesc {
-                    grid-area: summaryProductDesc;
-
-                    li {
-                        font-family: $lato;
-                        font-size: 16px;
-                        line-height: 16px;
-                        color: $black;
-                        margin-bottom: 13px;
-
-                        span {
-                            color:$orange;
-                            text-transform: uppercase;
-                            font-weight: 600;
-                        }
-
-                        strong {
-                            font-weight: 600;
-                        }
-
-                    }
-                }
-
-                .summaryProductPrice {
-                    text-align: right;
-                    grid-area: summaryProductPrice;
-                    font-family: $lato;
-                    font-size: 16px;
-                    line-height: 16px;
-                    color: $black;
-                }
-
-                .summaryPromoCode {
-                    grid-area: summaryPromoCode;
-
-                    p {
-                        font-size: 12px;
-                        font-family: $opensans;
-                        color: $black;
-                        line-height: 18px;
-                        width: 80%;
-                        margin-bottom: 30px;
-                        margin-top: 12px;
-                    }
-
-                    #promoCodeContainer {
-                        position: relative;
-
-                        .summaryPromoCode__field {
-                            width: 100%;
-                            background: #fff;
-                            border-radius: 0;
-                            height:48px;
-                            box-sizing: border-box;
-                            border: solid 1px #cecece;
-                            padding:0 10px 0 15px;
-                            font-size: 16px;
-                            font-family: $lato;
-                            outline: 0;
-                            font-weight: 300;
-                            color:#6d6a69;
-    
-                            &:focus + label {
-                                top:-10px;
-                                left:0;
-                                font-size: 13px;
-                            }
-                            
-                            &--valid {
-                                border-bottom: solid 1px #badc58;
-                            }
-    
-                            &--invalid {
-                                border: solid 1px #eb4d4b;
-                                background: #ff7979;
-                                color: #fff;
-                            }
-    
-                            &#cardName {
-                                text-transform: capitalize;
-                            }
-                        }
-
-                        label {
-                            font-size: 16px;
-                            font-family: $lato;
-                            font-weight: 300;
-                            color:#6d6a69;
-                            position: absolute;
-                            top:50%;
-                            pointer-events: none;
-                            left:15px;
-                            transform: translateY(-50%);
-                            transition: all .25s ease;
-    
-                            abbr {
-                                color:$orange;
-                                border-bottom: none;
-                                cursor: inherit;
-                                text-decoration: none;
-                            }
-    
-                            &.stay {
-                                top:-10px;
-                                left:0;
-                                font-size: 13px; 
-                            }
-                        }
-
-                        .applyPromoCode {
-                            position: absolute;
-                            background: #6d6a69;
-                            color:#fff;
-                            right:0;
-                            top:0;
-                            width:100px;
-                            text-align: center;
-                            line-height: 48px;
-                            height: 100%;
-                            cursor: pointer;
-                            border: solid 1px #cecece;
-                            box-sizing: border-box;
-                            font-size: 16px;
-                            font-family: $lato;
-                            text-transform: uppercase;
-                            transition: all .25s ease;
-
-                            &:hover {
-                                background:darken(#6d6a69, 10%);
-                            }
-                        }
-                    }
-                }
-                
-                .summaryTotalPrice {
-                    text-align: right;
-                    grid-area: summaryTotalPrice;
-                    font-family: $lato;
-                    font-size: 16px;
-                    line-height: 16px;
-                    line-height: 26px;
-                    color: $black;
-
-                    .leftTotalPrice {
-                        float: left;
-                    }
-
-                    .rightTotalPrice {
-                        
-                    }
-                }
-            }
-        }
-
-        &__details {
-            @extend %section;
-            background: $white;
-            display: grid;
-            grid-template-areas:
-                "title title"
-                "nameContainer emailContainer"
-                "companyContainer telephoneContainer";
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-column-gap: 24px;
-            grid-row-gap: 20px;
-
-            div {
-                position: relative;
-                height:48px;
-            }
-
-            label {
-                font-size: 16px;
-                font-family: $lato;
-                font-weight: 300;
-                color:#6d6a69;
-                position: absolute;
-                top:50%;
-                pointer-events: none;
-                left:15px;
-                transform: translateY(-50%);
-                transition: all .25s ease;
-
-                abbr {
-                    color:$orange;
-                    border-bottom: none;
-                    cursor: inherit;
-                    text-decoration: none;
-                }
-
-                &.stay {
-                    top:-10px;
-                    left:0;
-                    font-size: 13px; 
-                }
-            }
-
-            &--field {
-                height: 48px;
-                width:100%;
-                background: #fff;
-                border-radius: 0;
-                border: solid 1px #cecece;
-                box-shadow: none;
-                outline: none;
-                -webkit-appearance: none;
-                box-sizing: border-box;
-                font-family: $lato;
-                padding: 0 10px 0 15px;
-                font-size: 16px;
-                font-family: $lato;
-                font-weight: 300;
-                color:#6d6a69;
-
-
-                &:focus + label {
-                    top:-10px;
-                    left:0;
-                    font-size: 13px;
-                }
-
-                &--valid {
-                    border-bottom: solid 1px #badc58;
-                }
-
-                &--invalid {
-                    border: solid 1px #eb4d4b;
-                    background: #ff7979;
-                    color: #fff;
-                }
-            }
-
-            #nameContainer {
-                grid-area: nameContainer;
-            }
-
-            #emailContainer {
-                grid-area: emailContainer;
-            }
-
-            #companyContainer {
-                grid-area: companyContainer;
-            }
-
-            #telephoneContainer {
-                grid-area: telephoneContainer;
-            }
-        }
-
-        &__payment {
-            @extend %section;
-            margin-bottom:0;
-
-            .paymentTabs {
-                position: absolute;
-                left: 0;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                align-content: center;
-                margin-bottom: 50px;
-                height:56px;
-                background:rgba( $grey, .28 );
-                border-top: solid $grey 3px;
-                box-sizing: border-box;
-
-                &__tab {
-                    height: 53px;
-                    flex: 1 1 auto;
-                    vertical-align: top;
-                    position: relative;
-                    box-sizing: border-box;
-                    cursor: pointer;
-                    transition: all .3s ease;
-                    border-right: solid 3px $grey;
-                    box-shadow: inset 0px -3px 0px 0px $grey;
-
-                    &:last-child {
-                        border-right: none;
-                    }
-
-                    &--active {
-                        background: $white;
-                        box-shadow: inset 0px -3px 0px 0px $white;
-                    }
-
-                    &:hover {
-                        background: $white;
-                        box-shadow: inset 0px -3px 0px 0px $white;
-                    }
-
-                    img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-
-                    .cardImg {
-                        height: 28px;
-                    }
-
-                    .paypalImg {
-                        height: 20px;
-                    }
-
-                    .appleImg {
-                        height: 21px;
-                    }
-
-                    .googleImg {
-                        height: 21px;
-                    }
-
-                    .amazonImg {
-                        height: 24px;
-                    }
-                }
-            }
-
-            .tabContent {
-                display: none;
-                min-height: 400px;
-            }
-
-            #tab_card {
-                margin-top: 120px;
-                grid-template-columns: 1fr 1fr;
-                grid-column-gap: 20px;
-                grid-row-gap: 20px;
-                
-                .cardFormWrapper {
-                    background: $white;
-                    display: grid;
-                    grid-template-areas:
-                        "cardHolder-name cardHolder-name cardHolder-name"
-                        "cardHolder-number cardHolder-expiry cardHolder-cvv"
-                        "cardHolder-vat cardHolder-vat cardHolder-vat"
-                        "cardHolder-address cardHolder-address cardHolder-address"
-                        "cardHolder-addressManual cardHolder-addressManual cardHolder-addressManual";
-                    grid-template-columns: 2fr 1fr 1fr;
-                    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-                    grid-row-gap: 25px;
-                    height: 48px;
-                    grid-column-gap: 12px;
-
-                    div {
-                        position: relative;
-                        height:48px;
-                        
-                    }
-
-                    label {
-                        font-size: 16px;
-                        font-family: $lato;
-                        font-weight: 300;
-                        color:#6d6a69;
-                        position: absolute;
-                        top:50%;
-                        pointer-events: none;
-                        left:15px;
-                        transform: translateY(-50%);
-                        transition: all .25s ease;
-
-                        abbr {
-                            color:$orange;
-                            border-bottom: none;
-                            cursor: inherit;
-                            text-decoration: none;
-                        }
-
-                        &.stay {
-                            top:-10px;
-                            left:0;
-                            font-size: 13px; 
-                        }
-                    }
-
-                    &__field {
-                        width: 100%;
-                        background: #fff;
-                        border-radius: 0;
-                        height:48px;
-                        border: solid 1px #cecece;
-                        padding:0 10px 0 15px;
-                        font-size: 16px;
-                        font-family: $lato;
-                        font-weight: 300;
-                        color:#6d6a69;
-
-                        &:focus + label {
-                            top:-10px;
-                            left:0;
-                            font-size: 13px;
-                        }
-                        
-                        &--valid {
-                            border-bottom: solid 1px #badc58;
-                        }
-
-                        &--invalid {
-                            border: solid 1px #eb4d4b;
-                            background: #ff7979;
-                            color: #fff;
-                        }
-
-                        &#cardName {
-                            text-transform: capitalize;
-                        }
-                    }
-
-                    #cardNameContainer {
-                        grid-area: cardHolder-name;
-                    }
-
-                    #cardNumberContainer {
-                        grid-area: cardHolder-number;
-                    }
-
-                    #CardExpiryContainer {
-                        grid-area: cardHolder-expiry;
-                    }
-
-                    #cardCvvContainer {
-                        grid-area: cardHolder-cvv;
-                    }
-
-                    #vatNumberContainer {
-                        grid-area: cardHolder-vat;
-                    }
-
-                    #addressContainer {
-                        grid-area: cardHolder-address;
-
-                        .addressSearch {
-                            position: absolute;
-                            background:$green;
-                            color:#fff;
-                            right:0;
-                            top:0;
-                            width:48px;
-                            text-align: center;
-                            line-height: 48px;
-                            font-size: 25px;
-                            cursor: pointer;
-                            border: solid 1px #cecece;
-                            box-sizing: border-box;
-                            transition: all .25s ease;
-
-                            &:hover {
-                                background:darken($green, 10%);
-                            }
-
-                            svg {
-                                position: relative;
-                                top: 50%;
-                                transform: translateY(-50%);
-                            }
-                        }
-                    }
-
-                    #manualAddress {
-                        text-align: center;
-                        background: #6d6a69;
-                        text-transform: uppercase;
-                        color: #fff;
-                        font-weight: bold;
-                        grid-area: cardHolder-addressManual;
-                        height: 48px;
-                        line-height: 48px;
-                        font-family: $lato;
-                        cursor: pointer;
-                        transition: all .25s ease;
-
-                        &:hover {
-                            background: darken(#6d6a69, 10%);
-                        }
-                    }
-
-                    #submitOrder {
-                        background: $green;
-                        cursor: pointer;
-                        color: #fff;
-                        border:0;
-                        width: 335px;
-                        height: 52px;
-                        line-height: 52px;
-                        text-transform: uppercase;
-                        font-family: $lato;
-                        font-weight: bold;
-                        font-size: 19px;
-                        right: 0;
-                        position: absolute;
-                        right: 0;
-                        bottom: -52px;
-                        letter-spacing: 1px;
-                        transition: all .25s ease;
-
-                        &:hover {
-                            background: darken($green, 10%);
-                        }
-                    }
-                }
-
-                .cardPreview {
-                    display: inline-block;
-                    vertical-align: top;
-                    position: relative;
-                    perspective: 1000px;
-                    margin: 0 auto;
-
-                    &__card {
-                        width: 290px;
-                        height: 178px;
-                        border-radius: 15px;
-                        border: solid 2px #e5e4e3;
-                        position: relative;
-                        z-index: 1;
-                        transition: 0.6s;
-	                    transform-style: preserve-3d;
-
-                        &.flipped {
-                            transform: rotateY(180deg);
-                        }
-
-                        .front, .back {
-                            backface-visibility: hidden;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 290px;
-                            height: 178px;
-                        }
-
-                        .front {
-                            z-index: 2;
-                            transform: rotateY(0deg);
-                            background: #e5e4e3;
-                            overflow: hidden;
-                            border-radius: 13px;
-                            padding-left: 20px;
-                            box-sizing: border-box;
-
-                            &:after {
-                                background: #fff;
-                                content: '';
-                                width: 200%;
-                                height: 300%;
-                                border-radius: 50%;
-                                position: absolute;
-                                display: block;
-                                bottom: 0;
-                                right: 0px;
-                            }
-                        }
-                        
-                        .back {
-                            transform: rotateY(180deg);
-                            background: #fff;
-                            overflow: hidden;
-                            border-radius: 13px;
-                        }
-                    }
-
-                    &__chip {
-                        z-index: 2;
-                        position: relative;
-                        width: 47px;
-                        height: 32px;
-                        margin-top: 20px;
-                        margin-bottom: 14px;
-                        background: $grey;
-
-                        img {
-                            position: absolute;
-                            right: -80%;
-                            height: 100%;
-                        }
-                    }
-
-                    &__number {
-                        z-index: 2;
-                        position: relative;
-                        font-size: 15px;
-                        font-family: $lato;
-                        font-weight: 300;
-                        margin-bottom: 12px;
-                        letter-spacing: 4px;
-                        color: #636464;
-                    }
-
-                    &__name {
-                        z-index: 2;
-                        position: relative;
-                        font-size: 15px;
-                        font-family: $lato;
-                        margin-bottom: 12px;
-                        font-weight: 300;
-                        color: #636464;
-                        text-transform: capitalize;
-                    }
-
-                    &__date {
-                        z-index: 2;
-                        position: relative;
-                        font-size: 15px;
-                        font-family: $lato;
-                        font-weight: 300;
-                        color: #636464;
-                    }
-
-                    &__powered {
-                        max-width: 290px;
-                        width: 100%;
-                        margin-top: 20px;
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    &__magStrip {
-                        background:$black;
-                        width:100%;
-                        height:40px;
-                        margin: 25px auto 0 auto;
-                    }
-
-                    &__sigStrip {
-                        background:$grey;
-                        width:60%;
-                        height:30px;
-                        margin: 15px 0 0 20px;
-                    }
-
-                    &__cvv {
-                        font-size: 15px;
-                        color: #636464;
-                        font-family: $lato;
-                        text-align: right;
-                        padding: 7px;
-                    }
-                }
-
-                &.openPaymentMethod {
-                    display: grid;
-                }
-            }
-
-            #tab_others {
-                display: none;
-                margin-top: 120px;
-
-                &.openPaymentMethod {
-                    display: grid;
-                }
-            }
-        }
-
-        &__back {
-            margin-top: 20px;
-            margin-left: 5px;
-
-            a {
-                color:$black;
-                text-decoration: none;
-            }
-        }
+  background: $white;
+  padding-bottom: 100px; //TODO: Remove this
+
+  .tariff {
+    &__wrapper {
+      max-width: 990px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    .tariff {
-
-        &__wrapper {
-            max-width: 990px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        &__header {
-            height: 84px;
-            line-height: 84px;
-            font-family: $opensans;
-            font-size: 26px;
-            font-weight: 300;
-            color: $black;
-            text-align: center;
-            margin: 0;
-        }
-
-        .pricing {
-            width: calc(28% - 12px );
-            display: inline-block;
-            overflow: hidden;
-            vertical-align: top;
-            margin-right: 27px;
-            padding: 20px;
-            padding-top: 50px;
-            border: 1px solid #fff;
-            background: #f8f9fb;
-
-            &__title {
-                text-align: center;
-                font-size: 48px;
-                font-family: $lato;
-                color: $orange;
-                margin: 15px 0;
-                font-weight: 300;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-            }
-
-            &__cost {
-            }
-
-            &__period {
-            }
-
-            &__includes {
-            }
-
-            &__addonmp {
-            }
-
-            &__btn {
-                padding: 12px 18px;
-                background: #ea583c;
-                color: white;
-                font-size: 19px;
-                font-weight: normal;
-                margin-top: 20px;
-                text-align: center;
-                cursor: pointer;
-                transition: all 0.2s ease-in-out;
-
-                &:hover {
-                    outline: 2px solid #ea583c;
-                    background: none;
-                    color: #ea583c;
-                }
-            }
-
-            &:hover {
-                border: 1px solid $orange;
-            }
-
-            &:last-of-type {
-                margin-right: 0;
-            }
-        }
+    &__header {
+      height: 84px;
+      line-height: 84px;
+      font-family: $opensans;
+      font-size: 26px;
+      font-weight: 300;
+      color: $black;
+      text-align: center;
+      margin: 0;
     }
 
-    .email {
+    .pricing {
+      width: calc(28% - 12px);
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      margin-right: 27px;
+      padding: 20px;
+      padding-top: 50px;
+      border: 1px solid #fff;
+      background: #f8f9fb;
+      text-align: center;
 
-        &__wrapper {
-            max-width: 866px;
-            margin: 0 auto;
+      &__title {
+        font-family: $lato;
+        font-size: 40px;
+        font-weight: 300;
+        text-align: center;
+        color: $orange;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      &__desc {
+        font-family: $lato;
+        font-weight: 400;
+        font-size: 15px;
+        color: $orange;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      &__cost {
+        color: $orange;
+        font-size: 50px;
+        font-weight: 300;
+        font-family: $lato;
+        text-align: center;
+
+        span {
+          font-size: 30px;
         }
+      }
 
-        &__container {
-            border: solid 2px $orange;
-            padding: 46px 0;
-            text-align: center;
+      &__period {
+        color: $midnight;
+        font-size: 20px;
+        font-family: $lato;
+        font-weight: 300;
+        text-align: center;
+        border-bottom: solid 1px $orange;
+        padding-bottom: 10px;
+        display: inline-block;
+        margin-bottom: 38px;
+      }
+
+      &__includes {
+        text-align: left;
+        border-bottom: solid 1px $midnight;
+        color: $midnight;
+      }
+
+      &__addonmp {
+      }
+
+      &__btn {
+        padding: 12px 18px;
+        background: #ea583c;
+        color: white;
+        font-size: 19px;
+        font-weight: normal;
+        margin-top: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          outline: 2px solid #ea583c;
+          background: none;
+          color: #ea583c;
         }
+      }
 
-        &__title {
-            font-family: $opensans;
-            font-weight: 300;
-            font-size: 30px;
-            color:$black;
-            margin-bottom: 20px;
-        }
+      &:hover {
+        border: 1px solid $orange;
+      }
 
-        &__subtitle {
-            font-family: $lato;
-            font-weight: 300;
-            font-size: 20px;
-            color:$black;
-            margin-bottom: 35px;
-        }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
 
-        &__header {
-            background: $lightGrey;
-            height: 84px;
-            line-height: 84px;
-            font-family: $opensans;
-            font-size: 26px;
-            font-weight: 300;
-            position: relative;
-            margin-bottom: 100px;
-            color: $black;
-            text-align: center;
-
-            .stepWrapper {
-                width: 590px;
-                height: 40px;
-                margin: 0 auto;
-                position: absolute;
-                left: 50%;
-                bottom: -20px;
-                transform: translateX(-50%);
-
-                .step {
-                    text-align: center;
-                    font-size: 14px;
-                    display: inline-block;
-                    position: absolute;
-
-                    &__circle {
-                        width:36px;
-                        height:36px;
-                        background: $orange;
-                        color: $white;
-                        font-family: $lato;
-                        font-weight: bold;
-                        font-size: 17px;
-                        border-radius: 50%;
-                        text-align: center;
-                        line-height: 36px;
-                        border:solid 2px $orange;
-
-                        i {
-                            line-height: 36px;
-                            font-size: 24px;
-                        }
-
-                        &::after {
-                            content: '';
-                            display: block;
-                            width: 100%;
-                            color: $orange;
-                            left: 50%;
-                            font-size: 14px;
-                            position: relative;
-                            width: 110px;
-                            transform: translateX(-50%);
-                        }
-
-                        &--incomplete {
-                            background:$white;
-                            border:solid 2px $orange;
-                            color:$black;
-
-                            &:after {
-                                color: $black;
-                                font-weight: 400;
-                            }
-                        }
-                    }
-
-                    &--1 {
-                        left: -20px;
-
-                        .step__circle {
-                            &::after {
-                                content: 'Get started';
-                            }
-                        }
-                    }
-
-                    &--2 {
-                        left: calc(33% - 20px);
-
-                        .step__circle {
-                            &::after {
-                                content: 'Your number';
-                            }
-                        }
-                    }
-
-                    &--3 {
-                        left: calc(66% - 20px); 
-
-                        .step__circle {
-                            &::after {
-                                content: 'Your details';
-                            }
-                        }
-                    }
-
-                    &--4 {
-                        left: calc(100% - 20px);
-
-                        .step__circle {
-                            &::after {
-                                content: 'Secure checkout';
-                            }
-                        }
-                    }
-                }
-
-                &:before {
-                    content:'';
-                    display: block;
-                    background: $orange;
-                    height: 1px;
-                    width: 590px;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
-        }
-
-        #emailContainer, #emailFormContain {
-            position: relative;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        &__field {
-            width: 100%;
-            background: #fff;
-            border-radius: 0;
-            height:48px;
-            border: solid 1px #cecece;
-            padding:0 10px 0 15px;
-            font-size: 16px;
-            font-family: $lato;
-            font-weight: 300;
-            color:#6d6a69;
-            outline:0;
-
-            &:focus + label {
-                top:-10px;
-                left:0;
-                font-size: 13px;
-            }
-            
-            &--valid {
-                border-bottom: solid 1px #badc58;
-            }
-
-            &--invalid {
-                border: solid 1px #eb4d4b;
-                background: #ff7979;
-                color: #fff;
-            }
-
-            &#cardName {
-                text-transform: capitalize;
-            }
-        }
-
-        &__submit {
-            background: $green;
-            cursor: pointer;
-            color: #fff;
-            border:0;
-            width: 112px;
-            height: 48px;
-            line-height: 48px;
-            text-transform: uppercase;
-            font-family: $lato;
-            font-weight: bold;
-            font-size: 18px;
-            right: 0;
-            top: 0;
-            position: absolute;
-            transition: all .25s ease;
-
-            &:hover {
-                background: darken($green, 10%);
-            }
-        }
-
-        label {
-            font-size: 16px;
-            font-family: $lato;
-            font-weight: 300;
-            color:#6d6a69;
-            position: absolute;
-            top:50%;
-            pointer-events: none;
-            left:15px;
-            transform: translateY(-50%);
-            transition: all .25s ease;
-
-            abbr {
-                color:$orange;
-                border-bottom: none;
-                cursor: inherit;
-                text-decoration: none;
-            }
-
-            &.stay {
-                top:-10px;
-                left:0;
-                font-size: 13px; 
-            }
-        }
-
-        .gdprContainer {
-            text-align: left;
-            margin-top: 25px;
-
-            label {
-                font-size: 12px;
-                font-family: $lato;
-                font-weight: 400;
-                pointer-events: auto;
-                color:$black;
-                position: relative;
-                top:inherit;
-                left: 0;
-
-               a {
-                    color:$black;
-                } 
-            }
-
-            #gdprOptIn {
-                -webkit-appearance: none;
-                border: solid 1px $grey;
-                width: 22px;
-                height: 22px;
-                margin-right: 10px;
-                outline: 0;
-
-                &:checked {
-                    background: crimson;
-                }
-            }
-        }
+  .number {
+    &__wrapper {
+      max-width: 866px;
+      margin: 0 auto;
     }
 
-    .number {
-
-        &__wrapper {
-            max-width: 866px;
-            margin: 0 auto;
-        }
-
-        &__header {
-            background: $lightGrey;
-            height: 84px;
-            line-height: 84px;
-            font-family: $opensans;
-            font-size: 26px;
-            font-weight: 300;
-            position: relative;
-            margin-bottom: 100px;
-            color: $black;
-            text-align: center;
-        }
-
-        .chooseNumber, .keepNumber {
-            width: calc(50% - 12px);
-            border: solid 2px $orange;
-            height: 100px;
-            float: left;
-            box-sizing: border-box;
-            text-align: center;
-            cursor: pointer;
-            transition: all .25s ease;
-            position: relative;
-            font-family: $lato;
-            font-weight: 300;
-            font-size: 21px;
-            letter-spacing: 1px;
-
-            span {
-                position: absolute;
-                bottom: 25px;
-                left: 50%;
-                width: 100%;
-                transform: translateX(-50%);
-            }
-
-            &:after {
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                content: '';
-                top: 10px;
-                position: relative;
-                display: block;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #fff;
-                border: 2px solid $orange;
-                box-shadow: 0 0 0 3px #fff;
-            }
-
-            &--active {
-                background: $orange;
-                color: #fff;
-                cursor: default;
-            }
-
-            &:hover {
-                background: $orange;
-                color: #fff;
-            }
-        }
-
-        .chooseNumber {
-            margin-right:12px;
-        }
-
-        .keepNumber {
-            margin-left:12px;
-        }
+    &__header {
+      background: $lightGrey;
+      height: 84px;
+      line-height: 84px;
+      font-family: $opensans;
+      font-size: 26px;
+      font-weight: 300;
+      position: relative;
+      margin-bottom: 100px;
+      color: $black;
+      text-align: center;
     }
 
-    //Checkout step bar along top
-    .stepWrapper {
+    .chooseNumber,
+    .keepNumber {
+      width: calc(50% - 12px);
+      border: solid 2px $orange;
+      height: 100px;
+      float: left;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      font-family: $lato;
+      font-weight: 300;
+      font-size: 21px;
+      letter-spacing: 1px;
+
+      span {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+      }
+
+      &:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        content: "";
+        top: 10px;
+        position: relative;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 2px solid $orange;
+        box-shadow: 0 0 0 3px #fff;
+      }
+
+      &--active {
+        background: $orange;
+        color: #fff;
+        cursor: default;
+      }
+
+      &:hover {
+        background: $orange;
+        color: #fff;
+      }
+    }
+
+    .chooseNumber {
+      margin-right: 12px;
+    }
+
+    .keepNumber {
+      margin-left: 12px;
+    }
+  }
+
+  .email {
+    &__wrapper {
+      max-width: 866px;
+      margin: 0 auto;
+    }
+
+    &__container {
+      border: solid 2px $orange;
+      padding: 46px 0;
+      text-align: center;
+    }
+
+    &__title {
+      font-family: $opensans;
+      font-weight: 300;
+      font-size: 30px;
+      color: $black;
+      margin-bottom: 20px;
+    }
+
+    &__subtitle {
+      font-family: $lato;
+      font-weight: 300;
+      font-size: 20px;
+      color: $black;
+      margin-bottom: 35px;
+    }
+
+    &__header {
+      background: $lightGrey;
+      height: 84px;
+      line-height: 84px;
+      font-family: $opensans;
+      font-size: 26px;
+      font-weight: 300;
+      position: relative;
+      margin-bottom: 100px;
+      color: $black;
+      text-align: center;
+
+      .stepWrapper {
         width: 590px;
         height: 40px;
         margin: 0 auto;
@@ -1208,130 +272,1094 @@ $lato: "Lato", sans-serif;
         transform: translateX(-50%);
 
         .step {
+          text-align: center;
+          font-size: 14px;
+          display: inline-block;
+          position: absolute;
+
+          &__circle {
+            width: 36px;
+            height: 36px;
+            background: $orange;
+            color: $white;
+            font-family: $lato;
+            font-weight: bold;
+            font-size: 17px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 14px;
-            display: inline-block;
-            position: absolute;
+            line-height: 36px;
+            border: solid 2px $orange;
 
-            &__circle {
-                width:36px;
-                height:36px;
-                background: $orange;
-                color: $white;
-                font-family: $lato;
-                font-weight: bold;
-                font-size: 17px;
-                border-radius: 50%;
-                text-align: center;
-                line-height: 36px;
-                border:solid 2px $orange;
-
-                i {
-                    line-height: 36px;
-                    font-size: 24px;
-                }
-
-                &::after {
-                    content: '';
-                    display: block;
-                    width: 100%;
-                    color: $orange;
-                    left: 50%;
-                    font-size: 14px;
-                    position: relative;
-                    width: 110px;
-                    transform: translateX(-50%);
-                }
-
-                &--incomplete {
-                    background:$white;
-                    border:solid 2px $orange;
-                    color:$black;
-
-                    &:after {
-                        color: $black;
-                        font-weight: 400;
-                    }
-                }
+            i {
+              line-height: 36px;
+              font-size: 24px;
             }
 
-            &--1 {
-                left: -20px;
-
-                .step__circle {
-                    &::after {
-                        content: 'Get started';
-                    }
-                }
+            &::after {
+              content: "";
+              display: block;
+              width: 100%;
+              color: $orange;
+              left: 50%;
+              font-size: 14px;
+              position: relative;
+              width: 110px;
+              transform: translateX(-50%);
             }
 
-            &--2 {
-                left: calc(33% - 20px);
+            &--incomplete {
+              background: $white;
+              border: solid 2px $orange;
+              color: $black;
 
-                .step__circle {
-                    &::after {
-                        content: 'Your number';
-                    }
-                }
+              &:after {
+                color: $black;
+                font-weight: 400;
+              }
             }
+          }
 
-            &--3 {
-                left: calc(66% - 20px); 
+          &--1 {
+            left: -20px;
 
-                .step__circle {
-                    &::after {
-                        content: 'Your details';
-                    }
-                }
+            .step__circle {
+              &::after {
+                content: "Get started";
+              }
             }
+          }
 
-            &--4 {
-                left: calc(100% - 20px);
+          &--2 {
+            left: calc(33% - 20px);
 
-                .step__circle {
-                    &::after {
-                        content: 'Secure checkout';
-                    }
-                }
+            .step__circle {
+              &::after {
+                content: "Your number";
+              }
             }
+          }
+
+          &--3 {
+            left: calc(66% - 20px);
+
+            .step__circle {
+              &::after {
+                content: "Your details";
+              }
+            }
+          }
+
+          &--4 {
+            left: calc(100% - 20px);
+
+            .step__circle {
+              &::after {
+                content: "Secure checkout";
+              }
+            }
+          }
         }
 
         &:before {
-            content:'';
-            display: block;
-            background: $orange;
-            height: 1px;
-            width: 590px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+          content: "";
+          display: block;
+          background: $orange;
+          height: 1px;
+          width: 590px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
         }
+      }
     }
 
-    //Checkout overview styling
-    .overview {
-        @extend %section;
-        margin-top: 35px;
+    #emailContainer,
+    #emailFormContain {
+      position: relative;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    &__field {
+      width: 100%;
+      background: #fff;
+      border-radius: 0;
+      height: 48px;
+      border: solid 1px #cecece;
+      padding: 0 10px 0 15px;
+      font-size: 16px;
+      font-family: $lato;
+      font-weight: 300;
+      color: #6d6a69;
+      outline: 0;
+
+      &:focus + label {
+        top: -10px;
+        left: 0;
+        font-size: 13px;
+      }
+
+      &--valid {
+        border-bottom: solid 1px #badc58;
+      }
+
+      &--invalid {
+        border: solid 1px #eb4d4b;
+        background: #ff7979;
+        color: #fff;
+      }
+
+      &#cardName {
+        text-transform: capitalize;
+      }
+    }
+
+    &__submit {
+      background: $green;
+      cursor: pointer;
+      color: #fff;
+      border: 0;
+      width: 112px;
+      height: 48px;
+      line-height: 48px;
+      text-transform: uppercase;
+      font-family: $lato;
+      font-weight: bold;
+      font-size: 18px;
+      right: 0;
+      top: 0;
+      position: absolute;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: darken($green, 10%);
+      }
+    }
+
+    label {
+      font-size: 16px;
+      font-family: $lato;
+      font-weight: 300;
+      color: #6d6a69;
+      position: absolute;
+      top: 50%;
+      pointer-events: none;
+      left: 15px;
+      transform: translateY(-50%);
+      transition: all 0.25s ease;
+
+      abbr {
+        color: $orange;
+        border-bottom: none;
+        cursor: inherit;
+        text-decoration: none;
+      }
+
+      &.stay {
+        top: -10px;
+        left: 0;
+        font-size: 13px;
+      }
+    }
+
+    .gdprContainer {
+      text-align: left;
+      margin-top: 25px;
+
+      label {
+        font-size: 12px;
+        font-family: $lato;
+        font-weight: 400;
+        pointer-events: auto;
+        color: $black;
+        position: relative;
+        top: inherit;
+        left: 0;
+
+        a {
+          color: $black;
+        }
+      }
+
+      #gdprOptIn {
+        -webkit-appearance: none;
+        border: solid 1px $grey;
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+        outline: 0;
+
+        &:checked {
+          background: crimson;
+        }
+      }
+    }
+  }
+
+  .checkOut {
+    background: $grey;
+
+    &__wrapper {
+      max-width: 866px;
+      margin: 0 auto;
+    }
+
+    &__header {
+      background: $white;
+      height: 84px;
+      line-height: 84px;
+      font-family: $opensans;
+      font-size: 26px;
+      font-weight: 300;
+      color: $black;
+      text-align: center;
+
+      .secureCheckoutImg {
+        width: 22px;
+        display: inline-block;
+        margin-right: 15px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        display: inline-block;
+        margin: 0;
         font-family: $opensans;
         font-size: 26px;
-        line-height: 36px;
-        text-align: center;
-        color: $black;
+      }
+    }
+
+    &__title {
+      font-family: $opensans;
+      color: $black;
+      font-weight: 300;
+      font-size: 26px;
+      width: 100%;
+      grid-area: title;
+      padding-bottom: 15px;
+      margin-block-end: 15px;
+      border-bottom: solid 1px $orange;
+    }
+
+    &__summary {
+      @extend %section;
+
+      .summaryWrapper {
+        display: grid;
+        grid-template-areas:
+          "summaryProductDesc summaryProductPrice"
+          "summaryPromoCode summaryTotalPrice";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 40px;
+
+        .summaryProductDesc {
+          grid-area: summaryProductDesc;
+
+          li {
+            font-family: $lato;
+            font-size: 16px;
+            line-height: 16px;
+            color: $black;
+            margin-bottom: 13px;
+
+            span {
+              color: $orange;
+              text-transform: uppercase;
+              font-weight: 600;
+            }
+
+            strong {
+              font-weight: 600;
+            }
+          }
+        }
+
+        .summaryProductPrice {
+          text-align: right;
+          grid-area: summaryProductPrice;
+          font-family: $lato;
+          font-size: 16px;
+          line-height: 16px;
+          color: $black;
+        }
+
+        .summaryPromoCode {
+          grid-area: summaryPromoCode;
+
+          p {
+            font-size: 12px;
+            font-family: $opensans;
+            color: $black;
+            line-height: 18px;
+            width: 80%;
+            margin-bottom: 30px;
+            margin-top: 12px;
+          }
+
+          #promoCodeContainer {
+            position: relative;
+
+            .summaryPromoCode__field {
+              width: 100%;
+              background: #fff;
+              border-radius: 0;
+              height: 48px;
+              box-sizing: border-box;
+              border: solid 1px #cecece;
+              padding: 0 10px 0 15px;
+              font-size: 16px;
+              font-family: $lato;
+              outline: 0;
+              font-weight: 300;
+              color: #6d6a69;
+
+              &:focus + label {
+                top: -10px;
+                left: 0;
+                font-size: 13px;
+              }
+
+              &--valid {
+                border-bottom: solid 1px #badc58;
+              }
+
+              &--invalid {
+                border: solid 1px #eb4d4b;
+                background: #ff7979;
+                color: #fff;
+              }
+
+              &#cardName {
+                text-transform: capitalize;
+              }
+            }
+
+            label {
+              font-size: 16px;
+              font-family: $lato;
+              font-weight: 300;
+              color: #6d6a69;
+              position: absolute;
+              top: 50%;
+              pointer-events: none;
+              left: 15px;
+              transform: translateY(-50%);
+              transition: all 0.25s ease;
+
+              abbr {
+                color: $orange;
+                border-bottom: none;
+                cursor: inherit;
+                text-decoration: none;
+              }
+
+              &.stay {
+                top: -10px;
+                left: 0;
+                font-size: 13px;
+              }
+            }
+
+            .applyPromoCode {
+              position: absolute;
+              background: #6d6a69;
+              color: #fff;
+              right: 0;
+              top: 0;
+              width: 100px;
+              text-align: center;
+              line-height: 48px;
+              height: 100%;
+              cursor: pointer;
+              border: solid 1px #cecece;
+              box-sizing: border-box;
+              font-size: 16px;
+              font-family: $lato;
+              text-transform: uppercase;
+              transition: all 0.25s ease;
+
+              &:hover {
+                background: darken(#6d6a69, 10%);
+              }
+            }
+          }
+        }
+
+        .summaryTotalPrice {
+          text-align: right;
+          grid-area: summaryTotalPrice;
+          font-family: $lato;
+          font-size: 16px;
+          line-height: 16px;
+          line-height: 26px;
+          color: $black;
+
+          .leftTotalPrice {
+            float: left;
+          }
+
+          .rightTotalPrice {
+          }
+        }
+      }
+    }
+
+    &__details {
+      @extend %section;
+      background: $white;
+      display: grid;
+      grid-template-areas:
+        "title title"
+        "nameContainer emailContainer"
+        "companyContainer telephoneContainer";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-column-gap: 24px;
+      grid-row-gap: 20px;
+
+      div {
+        position: relative;
+        height: 48px;
+      }
+
+      label {
+        font-size: 16px;
+        font-family: $lato;
         font-weight: 300;
-        padding: 30px 140px 25px;
+        color: #6d6a69;
+        position: absolute;
+        top: 50%;
+        pointer-events: none;
+        left: 15px;
+        transform: translateY(-50%);
+        transition: all 0.25s ease;
 
-        strong {
+        abbr {
+          color: $orange;
+          border-bottom: none;
+          cursor: inherit;
+          text-decoration: none;
+        }
+
+        &.stay {
+          top: -10px;
+          left: 0;
+          font-size: 13px;
+        }
+      }
+
+      &--field {
+        height: 48px;
+        width: 100%;
+        background: #fff;
+        border-radius: 0;
+        border: solid 1px #cecece;
+        box-shadow: none;
+        outline: none;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        font-family: $lato;
+        padding: 0 10px 0 15px;
+        font-size: 16px;
+        font-family: $lato;
+        font-weight: 300;
+        color: #6d6a69;
+
+        &:focus + label {
+          top: -10px;
+          left: 0;
+          font-size: 13px;
+        }
+
+        &--valid {
+          border-bottom: solid 1px #badc58;
+        }
+
+        &--invalid {
+          border: solid 1px #eb4d4b;
+          background: #ff7979;
+          color: #fff;
+        }
+      }
+
+      #nameContainer {
+        grid-area: nameContainer;
+      }
+
+      #emailContainer {
+        grid-area: emailContainer;
+      }
+
+      #companyContainer {
+        grid-area: companyContainer;
+      }
+
+      #telephoneContainer {
+        grid-area: telephoneContainer;
+      }
+    }
+
+    &__payment {
+      @extend %section;
+      margin-bottom: 0;
+
+      .paymentTabs {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 50px;
+        height: 56px;
+        background: rgba($grey, 0.28);
+        border-top: solid $grey 3px;
+        box-sizing: border-box;
+
+        &__tab {
+          height: 53px;
+          flex: 1 1 auto;
+          vertical-align: top;
+          position: relative;
+          box-sizing: border-box;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-right: solid 3px $grey;
+          box-shadow: inset 0px -3px 0px 0px $grey;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          &--active {
+            background: $white;
+            box-shadow: inset 0px -3px 0px 0px $white;
+          }
+
+          &:hover {
+            background: $white;
+            box-shadow: inset 0px -3px 0px 0px $white;
+          }
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          .cardImg {
+            height: 28px;
+          }
+
+          .paypalImg {
+            height: 20px;
+          }
+
+          .appleImg {
+            height: 21px;
+          }
+
+          .googleImg {
+            height: 21px;
+          }
+
+          .amazonImg {
+            height: 24px;
+          }
+        }
+      }
+
+      .tabContent {
+        display: none;
+        min-height: 400px;
+      }
+
+      #tab_card {
+        margin-top: 120px;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+
+        .cardFormWrapper {
+          background: $white;
+          display: grid;
+          grid-template-areas:
+            "cardHolder-name cardHolder-name cardHolder-name"
+            "cardHolder-number cardHolder-expiry cardHolder-cvv"
+            "cardHolder-vat cardHolder-vat cardHolder-vat"
+            "cardHolder-address cardHolder-address cardHolder-address"
+            "cardHolder-addressManual cardHolder-addressManual cardHolder-addressManual";
+          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+          grid-row-gap: 25px;
+          height: 48px;
+          grid-column-gap: 12px;
+
+          div {
+            position: relative;
+            height: 48px;
+          }
+
+          label {
+            font-size: 16px;
+            font-family: $lato;
+            font-weight: 300;
+            color: #6d6a69;
+            position: absolute;
+            top: 50%;
+            pointer-events: none;
+            left: 15px;
+            transform: translateY(-50%);
+            transition: all 0.25s ease;
+
+            abbr {
+              color: $orange;
+              border-bottom: none;
+              cursor: inherit;
+              text-decoration: none;
+            }
+
+            &.stay {
+              top: -10px;
+              left: 0;
+              font-size: 13px;
+            }
+          }
+
+          &__field {
+            width: 100%;
+            background: #fff;
+            border-radius: 0;
+            height: 48px;
+            border: solid 1px #cecece;
+            padding: 0 10px 0 15px;
+            font-size: 16px;
+            font-family: $lato;
+            font-weight: 300;
+            color: #6d6a69;
+
+            &:focus + label {
+              top: -10px;
+              left: 0;
+              font-size: 13px;
+            }
+
+            &--valid {
+              border-bottom: solid 1px #badc58;
+            }
+
+            &--invalid {
+              border: solid 1px #eb4d4b;
+              background: #ff7979;
+              color: #fff;
+            }
+
+            &#cardName {
+              text-transform: capitalize;
+            }
+          }
+
+          #cardNameContainer {
+            grid-area: cardHolder-name;
+          }
+
+          #cardNumberContainer {
+            grid-area: cardHolder-number;
+          }
+
+          #CardExpiryContainer {
+            grid-area: cardHolder-expiry;
+          }
+
+          #cardCvvContainer {
+            grid-area: cardHolder-cvv;
+          }
+
+          #vatNumberContainer {
+            grid-area: cardHolder-vat;
+          }
+
+          #addressContainer {
+            grid-area: cardHolder-address;
+
+            .addressSearch {
+              position: absolute;
+              background: $green;
+              color: #fff;
+              right: 0;
+              top: 0;
+              width: 48px;
+              text-align: center;
+              line-height: 48px;
+              font-size: 25px;
+              cursor: pointer;
+              border: solid 1px #cecece;
+              box-sizing: border-box;
+              transition: all 0.25s ease;
+
+              &:hover {
+                background: darken($green, 10%);
+              }
+
+              svg {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+          }
+
+          #manualAddress {
+            text-align: center;
+            background: #6d6a69;
+            text-transform: uppercase;
+            color: #fff;
             font-weight: bold;
+            grid-area: cardHolder-addressManual;
+            height: 48px;
+            line-height: 48px;
+            font-family: $lato;
+            cursor: pointer;
+            transition: all 0.25s ease;
+
+            &:hover {
+              background: darken(#6d6a69, 10%);
+            }
+          }
+
+          #submitOrder {
+            background: $green;
+            cursor: pointer;
+            color: #fff;
+            border: 0;
+            width: 335px;
+            height: 52px;
+            line-height: 52px;
+            text-transform: uppercase;
+            font-family: $lato;
+            font-weight: bold;
+            font-size: 19px;
+            right: 0;
+            position: absolute;
+            right: 0;
+            bottom: -52px;
+            letter-spacing: 1px;
+            transition: all 0.25s ease;
+
+            &:hover {
+              background: darken($green, 10%);
+            }
+          }
         }
 
-        span {
-            color: $orange;
+        .cardPreview {
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
+          perspective: 1000px;
+          margin: 0 auto;
+
+          &__card {
+            width: 290px;
+            height: 178px;
+            border-radius: 15px;
+            border: solid 2px #e5e4e3;
+            position: relative;
+            z-index: 1;
+            transition: 0.6s;
+            transform-style: preserve-3d;
+
+            &.flipped {
+              transform: rotateY(180deg);
+            }
+
+            .front,
+            .back {
+              backface-visibility: hidden;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 290px;
+              height: 178px;
+            }
+
+            .front {
+              z-index: 2;
+              transform: rotateY(0deg);
+              background: #e5e4e3;
+              overflow: hidden;
+              border-radius: 13px;
+              padding-left: 20px;
+              box-sizing: border-box;
+
+              &:after {
+                background: #fff;
+                content: "";
+                width: 200%;
+                height: 300%;
+                border-radius: 50%;
+                position: absolute;
+                display: block;
+                bottom: 0;
+                right: 0px;
+              }
+            }
+
+            .back {
+              transform: rotateY(180deg);
+              background: #fff;
+              overflow: hidden;
+              border-radius: 13px;
+            }
+          }
+
+          &__chip {
+            z-index: 2;
+            position: relative;
+            width: 47px;
+            height: 32px;
+            margin-top: 20px;
+            margin-bottom: 14px;
+            background: $grey;
+
+            img {
+              position: absolute;
+              right: -80%;
+              height: 100%;
+            }
+          }
+
+          &__number {
+            z-index: 2;
+            position: relative;
+            font-size: 15px;
+            font-family: $lato;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
+            color: #636464;
+          }
+
+          &__name {
+            z-index: 2;
+            position: relative;
+            font-size: 15px;
+            font-family: $lato;
+            margin-bottom: 12px;
+            font-weight: 300;
+            color: #636464;
+            text-transform: capitalize;
+          }
+
+          &__date {
+            z-index: 2;
+            position: relative;
+            font-size: 15px;
+            font-family: $lato;
+            font-weight: 300;
+            color: #636464;
+          }
+
+          &__powered {
+            max-width: 290px;
+            width: 100%;
+            margin-top: 20px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          &__magStrip {
+            background: $black;
+            width: 100%;
+            height: 40px;
+            margin: 25px auto 0 auto;
+          }
+
+          &__sigStrip {
+            background: $grey;
+            width: 60%;
+            height: 30px;
+            margin: 15px 0 0 20px;
+          }
+
+          &__cvv {
+            font-size: 15px;
+            color: #636464;
+            font-family: $lato;
+            text-align: right;
+            padding: 7px;
+          }
         }
+
+        &.openPaymentMethod {
+          display: grid;
+        }
+      }
+
+      #tab_others {
+        display: none;
+        margin-top: 120px;
+
+        &.openPaymentMethod {
+          display: grid;
+        }
+      }
     }
 
-    //Stop inputs turning yellow and changing color on autocomplete
-    input:-webkit-autofill {
-        -webkit-text-fill-color: $black !important;
-        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    &__back {
+      margin-top: 20px;
+      margin-left: 5px;
+
+      a {
+        color: $black;
+        text-decoration: none;
+      }
     }
+  }
+
+  //Checkout step bar along top
+  .stepWrapper {
+    width: 590px;
+    height: 40px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+
+    .step {
+      text-align: center;
+      font-size: 14px;
+      display: inline-block;
+      position: absolute;
+
+      &__circle {
+        width: 36px;
+        height: 36px;
+        background: $orange;
+        color: $white;
+        font-family: $lato;
+        font-weight: bold;
+        font-size: 17px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        border: solid 2px $orange;
+
+        i {
+          line-height: 36px;
+          font-size: 24px;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          color: $orange;
+          left: 50%;
+          font-size: 14px;
+          position: relative;
+          width: 110px;
+          transform: translateX(-50%);
+        }
+
+        &--incomplete {
+          background: $white;
+          border: solid 2px $orange;
+          color: $black;
+
+          &:after {
+            color: $black;
+            font-weight: 400;
+          }
+        }
+      }
+
+      &--1 {
+        left: -20px;
+
+        .step__circle {
+          &::after {
+            content: "Get started";
+          }
+        }
+      }
+
+      &--2 {
+        left: calc(33% - 20px);
+
+        .step__circle {
+          &::after {
+            content: "Your number";
+          }
+        }
+      }
+
+      &--3 {
+        left: calc(66% - 20px);
+
+        .step__circle {
+          &::after {
+            content: "Your details";
+          }
+        }
+      }
+
+      &--4 {
+        left: calc(100% - 20px);
+
+        .step__circle {
+          &::after {
+            content: "Secure checkout";
+          }
+        }
+      }
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      background: $orange;
+      height: 1px;
+      width: 590px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  //Checkout overview styling
+  .overview {
+    @extend %section;
+    margin-top: 35px;
+    font-family: $opensans;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    color: $black;
+    font-weight: 300;
+    padding: 30px 140px 25px;
+
+    strong {
+      font-weight: bold;
+    }
+
+    span {
+      color: $orange;
+    }
+  }
+
+  //Stop inputs turning yellow and changing color on autocomplete
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $black !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
 }

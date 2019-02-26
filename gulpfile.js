@@ -4,7 +4,8 @@ var gulp = require("gulp"),
   postcss = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
   sourcemaps = require("gulp-sourcemaps"),
-  browserSync = require("browser-sync").create();
+  browserSync = require("browser-sync").create(),
+  cssDeclarationSorter = require('css-declaration-sorter');
 
 function style() {
   return (
@@ -13,7 +14,7 @@ function style() {
       .pipe(sourcemaps.init())
       .pipe(sass())
       .on("error", sass.logError)
-      .pipe(postcss([autoprefixer(), cssnano()]))
+      .pipe(postcss([autoprefixer(), cssnano(), cssDeclarationSorter()]))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(""))
       .pipe(browserSync.stream())
