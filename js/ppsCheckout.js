@@ -1,8 +1,8 @@
 $(function() {
 	hideInputLabels();
+	formValidationClasses();
 	cardPreviewAndFlip();
 	checkoutPaymentTabs();
-	formValidationClasses();
 });
 
 //If input field has a value then hide the label
@@ -13,6 +13,22 @@ function hideInputLabels() {
 			$("label[for='" + fieldId + "']").removeClass("stay");
 		} else {
 			$("label[for='" + fieldId + "']").addClass("stay");
+		}
+	});
+}
+
+function formValidationClasses() {
+	document.addEventListener("keyup", function(e) {
+		var input = e.target;
+		if (!$.nodeName(input, "input")) return;
+		input.checkValidity();
+		var element = $(input);
+		if (input.validity.valid) {
+			element.addClass("formFieldValid");
+			element.removeClass("formFieldError");
+		} else {
+			element.addClass("formFieldError");
+			element.removeClass("formFieldValid");
 		}
 	});
 }
@@ -53,18 +69,5 @@ function checkoutPaymentTabs() {
 
 		$(this).addClass("paymentTabs__tab--active");
 		$("#" + tab_id).addClass("openPaymentMethod");
-	});
-}
-
-function formValidationClasses() {
-	var inputs = document.querySelectorAll("input, select, textarea");
-
-	inputs.forEach(input => {
-		var className = $(this).attr("class");
-		if ($(this).is(":valid")) {
-			$(this).addClass(className + "--invalid");
-		} else {
-			$(this).addClass(className + "--valid");
-		}
 	});
 }

@@ -440,11 +440,11 @@ $lato: "Lato", sans-serif;
 				font-size: 13px;
 			}
 
-			&:valid {
+			&--valid {
 				border-bottom: solid 1px #badc58;
 			}
 
-			&:focus:invalid {
+			&--invalid {
 				border: solid 1px #eb4d4b;
 				background: #ff7979;
 				color: #fff;
@@ -664,16 +664,6 @@ $lato: "Lato", sans-serif;
 								font-size: 13px;
 							}
 
-							&:valid {
-								border-bottom: solid 1px #badc58;
-							}
-
-							&:focus:invalid {
-								border: solid 1px #eb4d4b;
-								background: #ff7979;
-								color: #fff;
-							}
-
 							&#cardName {
 								text-transform: capitalize;
 							}
@@ -816,11 +806,11 @@ $lato: "Lato", sans-serif;
 					font-size: 13px;
 				}
 
-				&:valid {
+				&--valid {
 					border-bottom: solid 1px #badc58;
 				}
 
-				&:focus:invalid {
+				&--invalid {
 					border: solid 1px #eb4d4b;
 					background: #ff7979;
 					color: #fff;
@@ -991,11 +981,11 @@ $lato: "Lato", sans-serif;
 							font-size: 13px;
 						}
 
-						&:valid {
+						&--valid {
 							border-bottom: solid 1px #badc58;
 						}
 
-						&:focus:invalid {
+						&--invalid {
 							border: solid 1px #eb4d4b;
 							background: #ff7979;
 							color: #fff;
@@ -1402,5 +1392,15 @@ $lato: "Lato", sans-serif;
 	input:-webkit-autofill {
 		-webkit-text-fill-color: $black !important;
 		-webkit-box-shadow: 0 0 0px 1000px white inset;
+	}
+
+	.formFieldValid {
+		border-bottom: solid 1px #badc58 !important;
+	}
+
+	.formFieldError {
+		border: solid 1px #eb4d4b !important;
+		background: #ff7979 !important;
+		color: #fff !important;
 	}
 }
