@@ -26,9 +26,6 @@ function formValidationClasses() {
 		if (input.validity.valid) {
 			element.addClass("formFieldValid");
 			element.removeClass("formFieldError");
-		} else {
-			element.addClass("formFieldError");
-			element.removeClass("formFieldValid");
 		}
 	});
 }
