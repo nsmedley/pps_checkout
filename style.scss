@@ -1428,6 +1428,7 @@ $lato: "Lato", sans-serif;
 	span.error {
 		border: none;
 		color: $red;
+		position: absolute;
 		font-weight: bold;
 		box-sizing: border-box;
 		display: block;

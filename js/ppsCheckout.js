@@ -7,7 +7,7 @@ $(function() {
 
 //If input field has a value then hide the label
 function hideInputLabels() {
-	$("input").focusout(function() {
+	$("input").on("keyup change input paste blur", function() {
 		var fieldId = $(this).attr("id");
 		if ($(this).val() == "") {
 			$("label[for='" + fieldId + "']").removeClass("stay");
