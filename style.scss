@@ -433,6 +433,10 @@ $lato: "Lato", sans-serif;
 			color: #6d6a69;
 			outline: 0;
 
+			&:focus {
+				border: 1px solid $green;
+			}
+
 			&:focus + label {
 				top: -10px;
 				left: 0;
@@ -467,11 +471,16 @@ $lato: "Lato", sans-serif;
 			font-weight: bold;
 			font-size: 18px;
 			right: 0;
+			outline: 0;
 			top: 0;
 			position: absolute;
 			transition: all 0.25s ease;
 
 			&:hover {
+				background: darken($green, 10%);
+			}
+
+			&:focus {
 				background: darken($green, 10%);
 			}
 		}
@@ -515,6 +524,7 @@ $lato: "Lato", sans-serif;
 				position: relative;
 				top: inherit;
 				left: 0;
+				user-select: none;
 
 				a {
 					color: $black;
@@ -529,9 +539,24 @@ $lato: "Lato", sans-serif;
 				margin-right: 10px;
 				outline: 0;
 
-				&:checked {
-					background: crimson;
+				&:focus {
+					border: 1px solid $green;
 				}
+
+				&:checked {
+					~ i {
+						display: block;
+					}
+				}
+			}
+
+			i {
+				display: none;
+				position: absolute;
+				left: 4px;
+				font-size: 22px;
+				color: $green;
+				top: -12px;
 			}
 		}
 	}
@@ -1394,13 +1419,24 @@ $lato: "Lato", sans-serif;
 		-webkit-box-shadow: 0 0 0px 1000px white inset;
 	}
 
-	.formFieldValid {
-		border-bottom: solid 1px #badc58 !important;
+	input.valid {
+		border-bottom: solid 1px #badc58;
 	}
 
-	.formFieldError {
-		border: solid 1px #eb4d4b !important;
-		background: #ff7979 !important;
-		color: #fff !important;
+	input.error {
+		border: solid 1px #eb4d4b;
+	}
+
+	span.error {
+		background: #ff7979;
+		border: none;
+		box-sizing: border-box;
+		color: #fff;
+		display: block;
+		width: 100%;
+		padding: 3px 0 3px 15px;
+		text-align: left;
+		font-size: 13px;
+		font-family: $lato;
 	}
 }
