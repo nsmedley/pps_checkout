@@ -525,6 +525,13 @@ $lato: "Lato", sans-serif;
 				top: inherit;
 				left: 0;
 				user-select: none;
+				display: block;
+				height: 22px;
+
+				span {
+					line-height: 22px;
+					position: absolute;
+				}
 
 				a {
 					color: $black;
@@ -556,7 +563,7 @@ $lato: "Lato", sans-serif;
 				left: 4px;
 				font-size: 22px;
 				color: $green;
-				top: -12px;
+				top: -1px;
 			}
 		}
 	}
