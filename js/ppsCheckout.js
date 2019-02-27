@@ -21,22 +21,40 @@ function formValidation() {
 	//Email Form validation
 	$("#emailFormContain").validate({
 		rules: {
-			// The key name on the left side is the name attribute
-			// of an input field. Validation rules are defined
-			// on the right side
-			email: "required",
 			email: {
 				required: true,
 				email: true
 			}
 		},
-		// Specify validation error messages
 		messages: {
 			email: "Please enter a valid email address"
 		},
 		errorElement: "span",
-		// Make sure the form is submitted to the destination defined
-		// in the "action" attribute of the form when valid
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+
+	//Checkout form validation
+	$("#checkoutForm").validate({
+		rules: {
+			name: "required",
+			checkoutEmail: {
+				required: true,
+				email: true
+			},
+			telephone: {
+				required: true,
+				number: true
+			},
+			cardName: "required",
+			cardNumber: "required",
+			address: "required"
+		},
+		messages: {
+			checkoutEmail: "Please enter a valid email address"
+		},
+		errorElement: "span",
 		submitHandler: function(form) {
 			form.submit();
 		}

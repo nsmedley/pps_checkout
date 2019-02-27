@@ -17,7 +17,7 @@
 
 	<body>
 		<div id="ppsCheckout">
-			<form class="checkOut" autocomplete="on">
+			<form class="checkOut" autocomplete="on" id="checkoutForm">
 				<div class="checkOut__header">
 					<div class="secureCheckoutImg">
 						<img src="images/lock.svg" alt="padlock icon" />
@@ -62,9 +62,10 @@
 										name="promoCode"
 										id="promoCode"
 										class="summaryPromoCode__field"
+										tabindex="1"
 									/>
 									<label for="promoCode">Promotional Code</label>
-									<div class="applyPromoCode">Apply</div>
+									<div class="applyPromoCode" tabindex="2">Apply</div>
 								</div>
 							</div>
 
@@ -94,6 +95,7 @@
 								id="name"
 								class="checkOut__details--field"
 								required
+								tabindex="3"
 							/>
 							<label for="name">Name <abbr title="required">*</abbr></label>
 						</div>
@@ -101,10 +103,11 @@
 						<div id="emailContainer">
 							<input
 								type="email"
-								name="email"
+								name="checkoutEmail"
 								id="email"
 								class="checkOut__details--field"
 								required
+								tabindex="4"
 							/>
 							<label for="email">Email <abbr title="required">*</abbr></label>
 						</div>
@@ -115,6 +118,7 @@
 								name="company"
 								id="company"
 								class="checkOut__details--field"
+								tabindex="5"
 							/>
 							<label for="company">Company name</label>
 						</div>
@@ -126,6 +130,7 @@
 								id="telephone"
 								class="checkOut__details--field"
 								required
+								tabindex="6"
 							/>
 							<label for="telephone"
 								>Telephone <abbr title="required">*</abbr></label
@@ -197,6 +202,7 @@
 										class="cardFormWrapper__field"
 										required
 										autocomplete="cc-name"
+										tabindex="7"
 									/>
 									<label for="cardName"
 										>Card Holder Name <abbr title="required">*</abbr></label
@@ -213,6 +219,7 @@
 										autocomplete="cc-number"
 										pattern="[0-9]{13,16}"
 										maxlength="16"
+										tabindex="8"
 									/>
 									<label for="cardNumber"
 										>Card Number <abbr title="required">*</abbr></label
@@ -229,6 +236,7 @@
 										autocomplete="cc-exp"
 										pattern="[0-9]{4,7}"
 										maxlength="7"
+										tabindex="9"
 									/>
 									<label for="cardExpiry"
 										>Expiry <abbr title="required">*</abbr></label
@@ -245,6 +253,7 @@
 										autocomplete="cc-csc"
 										maxlength="3"
 										pattern="[0-9]{3}"
+										tabindex="10"
 									/>
 									<label for="cardCvv"
 										>CVV <abbr title="required">*</abbr></label
@@ -257,6 +266,7 @@
 										name="vatNumber"
 										id="vatNumber"
 										class="cardFormWrapper__field"
+										tabindex="11"
 									/>
 									<label for="vatNumber">VAT number (optional)</label>
 								</div>
@@ -268,12 +278,15 @@
 										id="address"
 										class="cardFormWrapper__field"
 										autocomplete="nope"
+										tabindex="12"
 									/>
 									<label for="address"
 										>Start typing your address to search
 										<abbr title="required">*</abbr></label
 									>
-									<div class="addressSearch"><i class="fal fa-check"></i></div>
+									<div class="addressSearch" tabindex="13">
+										<i class="fal fa-check"></i>
+									</div>
 								</div>
 
 								<input
@@ -281,9 +294,15 @@
 									class="cardFormWrapper__field"
 									id="manualAddress"
 									value="Or enter address manually"
+									tabindex="14"
 								/>
 
-								<input type="submit" id="submitOrder" value="Complete order" />
+								<input
+									type="submit"
+									id="submitOrder"
+									value="Complete order"
+									tabindex="15"
+								/>
 							</div>
 
 							<div class="cardPreview">

@@ -688,6 +688,10 @@ $lato: "Lato", sans-serif;
 								font-size: 13px;
 							}
 
+							&:focus {
+								border: 1px solid $green;
+							}
+
 							&#cardName {
 								text-transform: capitalize;
 							}
@@ -736,8 +740,13 @@ $lato: "Lato", sans-serif;
 							font-family: $lato;
 							text-transform: uppercase;
 							transition: all 0.25s ease;
+							outline: 0;
 
 							&:hover {
+								background: darken(#6d6a69, 10%);
+							}
+
+							&:focus {
 								background: darken(#6d6a69, 10%);
 							}
 						}
@@ -830,14 +839,8 @@ $lato: "Lato", sans-serif;
 					font-size: 13px;
 				}
 
-				&--valid {
-					border-bottom: solid 1px #badc58;
-				}
-
-				&--invalid {
-					border: solid 1px #eb4d4b;
-					background: #ff7979;
-					color: #fff;
+				&:focus {
+					border: 1px solid $green;
 				}
 			}
 
@@ -997,6 +1000,7 @@ $lato: "Lato", sans-serif;
 						font-size: 16px;
 						font-family: $lato;
 						font-weight: 300;
+						outline: 0;
 						color: #6d6a69;
 
 						&:focus + label {
@@ -1005,14 +1009,8 @@ $lato: "Lato", sans-serif;
 							font-size: 13px;
 						}
 
-						&--valid {
-							border-bottom: solid 1px #badc58;
-						}
-
-						&--invalid {
-							border: solid 1px #eb4d4b;
-							background: #ff7979;
-							color: #fff;
+						&:focus {
+							border: 1px solid $green;
 						}
 
 						&#cardName {
@@ -1420,21 +1418,21 @@ $lato: "Lato", sans-serif;
 	}
 
 	input.valid {
-		border-bottom: solid 1px #badc58;
+		border-bottom: solid 1px #badc58 !important;
 	}
 
 	input.error {
-		border: solid 1px #eb4d4b;
+		border: solid 1px #eb4d4b !important;
 	}
 
 	span.error {
-		background: #ff7979;
 		border: none;
+		color: $red;
+		font-weight: bold;
 		box-sizing: border-box;
-		color: #fff;
 		display: block;
 		width: 100%;
-		padding: 3px 0 3px 15px;
+		padding: 3px;
 		text-align: left;
 		font-size: 13px;
 		font-family: $lato;
