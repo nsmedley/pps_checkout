@@ -8,17 +8,15 @@ var gulp = require("gulp"),
 	cssDeclarationSorter = require("css-declaration-sorter");
 
 function style() {
-	return (
-		gulp
-			.src("*.scss")
-			// .pipe(sourcemaps.init())
-			.pipe(sass())
-			.on("error", sass.logError)
-			.pipe(postcss([autoprefixer(), cssnano(), cssDeclarationSorter()]))
-			// .pipe(sourcemaps.write())
-			.pipe(gulp.dest(""))
-			.pipe(browserSync.stream())
-	);
+	return gulp
+		.src("*.scss")
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.on("error", sass.logError)
+		.pipe(postcss([autoprefixer(), cssnano(), cssDeclarationSorter()]))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(""))
+		.pipe(browserSync.stream());
 }
 
 function reload() {
