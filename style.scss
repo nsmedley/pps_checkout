@@ -958,7 +958,7 @@ $lato: "Lato", sans-serif;
 						"cardHolder-name cardHolder-name cardHolder-name"
 						"cardHolder-number cardHolder-expiry cardHolder-cvv"
 						"cardHolder-vat cardHolder-vat cardHolder-vat"
-						"cardHolder-address cardHolder-address cardHolder-address"
+						"cardHolder-address cardHolder-address cardHolder-addressBtn"
 						"cardHolder-addressManual cardHolder-addressManual cardHolder-addressManual";
 					grid-template-columns: 2fr 1fr 1fr;
 					grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -1009,6 +1009,7 @@ $lato: "Lato", sans-serif;
 						font-weight: 300;
 						outline: 0;
 						color: #6d6a69;
+						box-sizing: border-box;
 
 						&:focus + label {
 							top: -10px;
@@ -1047,14 +1048,18 @@ $lato: "Lato", sans-serif;
 
 					#addressContainer {
 						grid-area: cardHolder-address;
+					}
 
+					#addressSubmit {
+						grid-area: cardHolder-addressBtn;
 						.addressSearch {
 							position: absolute;
 							background: $green;
 							color: #fff;
 							right: 0;
 							top: 0;
-							width: 48px;
+							width: 100%;
+							outline: 0;
 							text-align: center;
 							line-height: 48px;
 							font-size: 25px;
@@ -1063,14 +1068,9 @@ $lato: "Lato", sans-serif;
 							box-sizing: border-box;
 							transition: all 0.25s ease;
 
-							&:hover {
+							&:hover,
+							&:focus {
 								background: darken($green, 10%);
-							}
-
-							i {
-								position: relative;
-								top: 50%;
-								transform: translateY(-50%);
 							}
 						}
 					}
@@ -1088,7 +1088,8 @@ $lato: "Lato", sans-serif;
 						cursor: pointer;
 						transition: all 0.25s ease;
 
-						&:hover {
+						&:hover,
+						&:focus {
 							background: darken(#6d6a69, 10%);
 						}
 					}

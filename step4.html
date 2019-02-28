@@ -1,37 +1,30 @@
+<!DOCTYPE html>
+
 <html class="no-js" lang="en">
+
 	<head>
 		<title>PPS Checkout</title>
-
-		<link
-			href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,700"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://pro.fontawesome.com/releases/v5.7.2/css/all.css"
-			integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev"
-			crossorigin="anonymous"
-		/>
-		<link href="style.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,700" rel="stylesheet">
+		<link href="https://pro.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
 	</head>
 
 	<body>
 		<div id="ppsCheckout">
-			<form class="checkOut" autocomplete="on" id="checkoutForm">
+			<form autocomplete="on" class="checkOut" id="checkoutForm" name="checkoutForm">
 				<div class="checkOut__header">
 					<div class="secureCheckoutImg">
-						<img src="images/lock.svg" alt="padlock icon" />
+						<img alt="padlock icon" src="images/lock.svg">
 					</div>
 					<h2>Secure Checkout</h2>
 				</div>
 
+
 				<div class="checkOut__wrapper">
 					<div class="overview">
-						<p>
-							Your unique business number <strong>0020 345 6789</strong
-							><br />has been reserved for <span>34:26</span> minutes
-						</p>
+						<p>Your unique business number <strong>0020 345 6789</strong><br>has been reserved for <span>34:26</span> minutes</p>
 					</div>
+
 
 					<div class="checkOut__summary">
 						<h2 class="checkOut__title">Order summary</h2>
@@ -40,9 +33,7 @@
 							<ul class="summaryProductDesc">
 								<li>Pocket Phone System <span>SPRINT</span> package</li>
 								<li><strong>3</strong> x Recipients</li>
-								<li>
-									1 x Free business number: <strong>0020 345 6789</strong>
-								</li>
+								<li>1 x Free business number: <strong>0020 345 6789</strong></li>
 								<li><strong>600</strong> Inclusive minutes</li>
 							</ul>
 
@@ -51,23 +42,14 @@
 							</div>
 
 							<div class="summaryPromoCode">
-								<p>
-									*Text regarding costs for Outbound Calls charges and
-									additional inclusive minutes rates etc. etc.
-								</p>
+								<p>*Text regarding costs for Outbound Calls charges and additional inclusive minutes rates etc. etc.</p>
 
 								<div id="promoCodeContainer">
-									<input
-										type="text"
-										name="promoCode"
-										id="promoCode"
-										class="summaryPromoCode__field"
-										tabindex="1"
-									/>
-									<label for="promoCode">Promotional Code</label>
+									<input class="summaryPromoCode__field" id="promoCode" name="promoCode" tabindex="1" type="text"> <label for="promoCode">Promotional Code</label>
 									<div class="applyPromoCode" tabindex="2">Apply</div>
 								</div>
 							</div>
+
 
 							<div class="summaryTotalPrice">
 								<div class="leftTotalPrice">
@@ -85,260 +67,136 @@
 						</div>
 					</div>
 
+
 					<div class="checkOut__details">
 						<h2 class="checkOut__title">Your details</h2>
 
 						<div id="nameContainer">
-							<input
-								type="text"
-								name="name"
-								id="name"
-								class="checkOut__details--field"
-								required
-								tabindex="3"
-							/>
-							<label for="name">Name <abbr title="required">*</abbr></label>
+							<input class="checkOut__details--field" id="name" name="name" required="" tabindex="3" type="text"> <label for="name">Name <abbr title="required">*</abbr></label>
 						</div>
 
 						<div id="emailContainer">
-							<input
-								type="email"
-								name="checkoutEmail"
-								id="email"
-								class="checkOut__details--field"
-								required
-								tabindex="4"
-							/>
-							<label for="email">Email <abbr title="required">*</abbr></label>
+							<input class="checkOut__details--field" id="email" name="checkoutEmail" required="" tabindex="4" type="email"> <label for="email">Email <abbr title="required">*</abbr></label>
 						</div>
 
 						<div id="companyContainer">
-							<input
-								type="text"
-								name="company"
-								id="company"
-								class="checkOut__details--field"
-								tabindex="5"
-							/>
-							<label for="company">Company name</label>
+							<input class="checkOut__details--field" id="company" name="company" tabindex="5" type="text"> <label for="company">Company name</label>
 						</div>
 
 						<div id="telephoneContainer">
-							<input
-								type="tel"
-								name="telephone"
-								id="telephone"
-								class="checkOut__details--field"
-								required
-								tabindex="6"
-							/>
-							<label for="telephone"
-								>Telephone <abbr title="required">*</abbr></label
-							>
+							<input class="checkOut__details--field" id="telephone" name="telephone" required="" tabindex="6" type="tel"> <label for="telephone">Telephone <abbr title="required">*</abbr></label>
 						</div>
 					</div>
 
+
 					<div class="checkOut__payment">
-						<h2 class="checkOut__title checkOut__title--short">
-							Payment details
-						</h2>
+						<h2 class="checkOut__title checkOut__title--short">Payment details</h2>
 
 						<div class="paymentTabs">
-							<div
-								class="paymentTabs__tab paymentTabs__tab--active"
-								data-tab="tab_card"
-							>
-								<img src="images/card.svg" class="cardImg" alt="pay by card" />
+							<div class="paymentTabs__tab paymentTabs__tab--active" data-tab="tab_card">
+								<img alt="pay by card" class="cardImg" src="images/card.svg">
 							</div>
-							<div class="paymentTabs__tab" id="payPal" data-tab="tab_others">
-								<img
-									src="images/paypal.svg"
-									class="paypalImg"
-									alt="pay by paypal"
-									data-tab="tab_card"
-								/>
+
+							<div class="paymentTabs__tab" data-tab="tab_others" id="payPal">
+								<img alt="pay by paypal" class="paypalImg" data-tab="tab_card" src="images/paypal.svg">
 							</div>
-							<div class="paymentTabs__tab" id="applePay" data-tab="tab_others">
-								<img
-									src="images/applepay.svg"
-									class="appleImg"
-									alt="pay by Apple pay"
-									data-tab="tab_card"
-								/>
+
+							<div class="paymentTabs__tab" data-tab="tab_others" id="applePay">
+								<img alt="pay by Apple pay" class="appleImg" data-tab="tab_card" src="images/applepay.svg">
 							</div>
-							<div
-								class="paymentTabs__tab"
-								id="googlePay"
-								data-tab="tab_others"
-							>
-								<img
-									src="images/googlepay.svg"
-									class="googleImg"
-									alt="pay by Google pay"
-									data-tab="tab_card"
-								/>
+
+							<div class="paymentTabs__tab" data-tab="tab_others" id="googlePay">
+								<img alt="pay by Google pay" class="googleImg" data-tab="tab_card" src="images/googlepay.svg">
 							</div>
-							<div
-								class="paymentTabs__tab"
-								id="amazonPay"
-								data-tab="tab_others"
-							>
-								<img
-									src="images/amazonpay.svg"
-									class="amazonImg"
-									alt="pay by Amazong pay"
-									data-tab="tab_card"
-								/>
+
+							<div class="paymentTabs__tab" data-tab="tab_others" id="amazonPay">
+								<img alt="pay by Amazong pay" class="amazonImg" data-tab="tab_card" src="images/amazonpay.svg">
 							</div>
 						</div>
 
 						<div class="tabContent openPaymentMethod" id="tab_card">
 							<div class="cardFormWrapper">
 								<div id="cardNameContainer">
-									<input
-										type="text"
-										name="cardName"
-										id="cardName"
-										class="cardFormWrapper__field"
-										required
-										autocomplete="cc-name"
-										tabindex="7"
-									/>
-									<label for="cardName"
-										>Card Holder Name <abbr title="required">*</abbr></label
-									>
+									<input autocomplete="cc-name" class="cardFormWrapper__field" id="cardName" name="cardName" required="" tabindex="7" type="text">
+									<label for="cardName">Card Holder Name <abbr title="required">*</abbr></label>
 								</div>
+
 
 								<div id="cardNumberContainer">
-									<input
-										type="text"
-										name="cardNumber"
-										id="cardNumber"
-										class="cardFormWrapper__field"
-										required
-										autocomplete="cc-number"
-										pattern="[0-9]{13,16}"
-										maxlength="16"
-										tabindex="8"
-									/>
-									<label for="cardNumber"
-										>Card Number <abbr title="required">*</abbr></label
-									>
+									<input autocomplete="cc-number" class="cardFormWrapper__field" id="cardNumber" maxlength="16" name="cardNumber" pattern="[0-9]{13,16}" required="" tabindex="8" type="text">
+									<label for="cardNumber">Card Number <abbr title="required">*</abbr></label>
 								</div>
+
 
 								<div id="cardExpiryContainer">
-									<input
-										type="text"
-										name="cardExpiry"
-										id="cardExpiry"
-										class="cardFormWrapper__field"
-										required
-										autocomplete="cc-exp"
-										pattern="[0-9]{4,7}"
-										maxlength="7"
-										tabindex="9"
-									/>
-									<label for="cardExpiry"
-										>Expiry <abbr title="required">*</abbr></label
-									>
+									<input autocomplete="cc-exp" class="cardFormWrapper__field" id="cardExpiry" maxlength="7" name="cardExpiry" pattern="[0-9]{4,7}" required="" tabindex="9" type="text">
+									<label for="cardExpiry">Expiry <abbr title="required">*</abbr></label>
 								</div>
+
 
 								<div id="cardCvvContainer">
-									<input
-										type="text"
-										name="cardCvv"
-										id="cardCvv"
-										class="cardFormWrapper__field"
-										required
-										autocomplete="cc-csc"
-										maxlength="3"
-										pattern="[0-9]{3}"
-										tabindex="10"
-									/>
-									<label for="cardCvv"
-										>CVV <abbr title="required">*</abbr></label
-									>
+									<input autocomplete="cc-csc" class="cardFormWrapper__field" id="cardCvv" maxlength="3" name="cardCvv" pattern="[0-9]{3}" required="" tabindex="10" type="text">
+									<label for="cardCvv">CVV <abbr title="required">*</abbr></label>
 								</div>
 
+
 								<div id="vatNumberContainer">
-									<input
-										type="text"
-										name="vatNumber"
-										id="vatNumber"
-										class="cardFormWrapper__field"
-										tabindex="11"
-									/>
+									<input class="cardFormWrapper__field" id="vatNumber" name="vatNumber" tabindex="11" type="text">
 									<label for="vatNumber">VAT number (optional)</label>
 								</div>
 
+
 								<div id="addressContainer">
-									<input
-										type="text"
-										name="address"
-										id="address"
-										class="cardFormWrapper__field"
-										autocomplete="nope"
-										tabindex="12"
-									/>
-									<label for="address"
-										>Start typing your address to search
-										<abbr title="required">*</abbr></label
-									>
+									<input autocomplete="nope" class="cardFormWrapper__field" id="address" name="address" tabindex="12" type="text">
+									<label for="address">Start typing your address to search <abbr title="required">*</abbr></label>
+								</div>
+
+								<div id="addressSubmit">
 									<div class="addressSearch" tabindex="13">
 										<i class="fal fa-check"></i>
 									</div>
 								</div>
-
-								<input
-									type="button"
-									class="cardFormWrapper__field"
-									id="manualAddress"
-									value="Or enter address manually"
-									tabindex="14"
-								/>
-
-								<input
-									type="submit"
-									id="submitOrder"
-									value="Complete order"
-									tabindex="15"
-								/>
+								
+								<input class="cardFormWrapper__field" id="manualAddress" tabindex="14" type="button" value="Or enter address manually"> <input id="submitOrder" tabindex="15" type="submit" value="Complete order">
 							</div>
+
 
 							<div class="cardPreview">
 								<div class="cardPreview__card">
 									<div class="front">
 										<div class="cardPreview__chip">
-											<img
-												src="images/contactless.svg"
-												alt="Contactless icon for card preview"
-											/>
+											<img alt="Contactless icon for card preview" src="images/contactless.svg">
 										</div>
+
 										<div class="cardPreview__number">**** **** **** 0000</div>
+
 										<div class="cardPreview__name">John C Smith</div>
+
 										<div class="cardPreview__date">12 / 22</div>
 									</div>
+
 									<div class="back">
 										<div class="cardPreview__magStrip"></div>
+
 										<div class="cardPreview__sigStrip">
 											<div class="cardPreview__cvv">000</div>
 										</div>
 									</div>
 								</div>
 
+
 								<div class="cardPreview__powered">
-									<img
-										src="images/powered_by.svg"
-										alt="powerd by worldpay, visa, mastercard"
-									/>
+									<img alt="powerd by worldpay, visa, mastercard" src="images/powered_by.svg">
 								</div>
 							</div>
 						</div>
+
 
 						<div class="tabContent" id="tab_others">
 							<h2>Sorry, This payment option is currently not active</h2>
 						</div>
 					</div>
+
 
 					<div class="checkOut__back">
 						<a href="step3.html">&lt; Back</a>
@@ -352,24 +210,8 @@
 		<script src="js/ppsCheckout.js"></script>
 
 		<script>
-			(function(n, t, i, r) {
-				var u, f;
-				(n[i] = n[i] || {}),
-					(n[i].initial = {
-						accountCode: "NSMED11114",
-						host: "NSMED11114.pcapredict.com"
-					}),
-					(n[i].on =
-						n[i].on ||
-						function() {
-							(n[i].onq = n[i].onq || []).push(arguments);
-						}),
-					(u = t.createElement("script")),
-					(u.async = !0),
-					(u.src = r),
-					(f = t.getElementsByTagName("script")[0]),
-					f.parentNode.insertBefore(u, f);
-			})(window, document, "pca", "//NSMED11114.pcapredict.com/js/sensor.js");
+			!function(e,n,c,o){var t,s;e[c]=e[c]||{},e[c].initial={accountCode:"NSMED11114",host:"NSMED11114.pcapredict.com"},e[c].on=e[c].on||function(){(e[c].onq=e[c].onq||[]).push(arguments)},(t=n.createElement("script")).async=!0,t.src="//NSMED11114.pcapredict.com/js/sensor.js",(s=n.getElementsByTagName("script")[0]).parentNode.insertBefore(t,s)}(window,document,"pca");
 		</script>
 	</body>
+
 </html>
